@@ -16,6 +16,8 @@
 
     <modules>
         <module>auth-service</module>
+        <module>claim-service</module>
+        <module>policy-service</module>
     </modules>
 
     <properties>
