@@ -1,4 +1,4 @@
-package com.techcombank.tclife.policy_service;
+package com.techcombank.tclife.policyService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

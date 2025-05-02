@@ -1,10 +1,10 @@
-package com.techcombank.tclife.policy_service;
+package com.techcombank.tclife.authService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PolicyServiceApplicationTests {
+class AuthServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
