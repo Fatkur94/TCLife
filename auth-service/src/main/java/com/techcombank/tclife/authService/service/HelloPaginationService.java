@@ -9,10 +9,11 @@ import com.techcombank.tclife.common.service.ResponseWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -21,27 +22,38 @@ public class HelloPaginationService implements BaseService<UserRequest, BasePagi
 
     @Override
     public ResponseWrapper<BasePaginationResponse<UserResponse>> proceed(UserRequest input) {
-        int page = input.getPage();
-        int size = input.getSize();
+        Pageable pageable = input.toPageable();
 
         List<User> allUsers = generateDummyUsers(50);
 
-        int start = Math.min(page * size, allUsers.size());
-        int end = Math.min(start + size, allUsers.size());
+        int start = (int) pageable.getOffset();
+        int end = Math.min(start + pageable.getPageSize(), allUsers.size());
+        List<UserResponse> userResponses = start < allUsers.size()
+                ? allUsers.subList(start, end).stream()
+                .map(user -> UserResponse.builder()
+                        .id(user.getId())
+                        .name(user.getName())
+                        .email(user.getEmail())
+                        .build())
+                .toList()
+                : Collections.emptyList();
 
-        List<User> pagedUsers = allUsers.subList(start, end);
 
-        List<UserResponse> userResponses = pagedUsers.stream()
-                .map(user -> new UserResponse(user.getId(), user.getName(), user.getEmail()))
-                .toList();
-
-        Page<UserResponse> userResponsePage = new PageImpl<>(
+        Page<UserResponse> page = new PageImpl<>(
                 userResponses,
-                PageRequest.of(page, size),
+                pageable,
                 allUsers.size()
         );
 
-        BasePaginationResponse<UserResponse> response = new BasePaginationResponse<>(userResponsePage);
+
+        BasePaginationResponse<UserResponse> response = new BasePaginationResponse<>(
+                page.getContent(),
+                page.getNumber() + 1,
+                page.getSize(),
+                page.getTotalElements(),
+                page.getTotalPages()
+        );
+
         return successResponse(response);
     }
 
@@ -53,4 +65,3 @@ public class HelloPaginationService implements BaseService<UserRequest, BasePagi
         return users;
     }
 }
-
