@@ -1,19 +1,25 @@
 package com.techcombank.tclife.policyService.controller;
 
-import com.techcombank.tclife.policyService.dto.PolicyListDTO;
+import com.techcombank.tclife.common.base.BasePaginationRequest;
+import com.techcombank.tclife.common.base.BasePaginationResponse;
+import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.policyService.model.response.PolicyResponse;
+import com.techcombank.tclife.policyService.service.GetPolicyListService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
 @RestController
-@RequestMapping("policy-service")
-@RequiredArgsConstructor
+@RequestMapping("/policy-service/api/v1")
 @Tag(name = "Policy Management", description = "APIs for managing policy")
 public class PolicyController {
+
+    public GetPolicyListService getPolicyListService;
+
+    public PolicyController(GetPolicyListService getPolicyListService) {
+        this.getPolicyListService = getPolicyListService;
+    }
 
     @GetMapping
     public ResponseEntity<String> hello() {
@@ -21,12 +27,8 @@ public class PolicyController {
     }
 
     @Operation(summary = "")
-    @GetMapping("policyList/{agentCd}")
-    public ResponseEntity<PolicyListDTO>getPolicyList(
-            @PathVariable("agentCd") String agentCd,
-            @RequestParam("page") int page,
-            @RequestParam("size") int size){
-        Pageable pageable = PageRequest.of(page, size);
-        return null;
+    @GetMapping("/policies")
+    public ResponseWrapper<BasePaginationResponse<PolicyResponse>> getPolicyList(BasePaginationRequest request) {
+        return getPolicyListService.proceed(request);
     }
 }

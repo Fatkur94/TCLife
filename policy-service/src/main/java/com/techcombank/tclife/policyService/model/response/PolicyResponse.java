@@ -1,4 +1,4 @@
-package com.techcombank.tclife.policyService.dto;
+package com.techcombank.tclife.policyService.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,10 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PolicyListDTO {
+public class PolicyResponse {
     private String fullName;
     private String policyNo;
     private String productName;
-    private Date effectiveDt;
+    private Date effectiveDate;
     private String policyStatus;
 }
