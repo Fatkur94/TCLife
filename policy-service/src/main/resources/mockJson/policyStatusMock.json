@@ -1,0 +1,195 @@
+{
+  "BusinessCodeTable": {
+    "@pk": 507073966,
+    "CodeField": "proposalStatus",
+    "CodeTableId": 507073966,
+    "CodeTableType": -1,
+    "ConditionFields": [
+      "proposalStatus"
+    ],
+    "DescField": "statusDesc",
+    "Description": "Code table of proposal status",
+    "EsCodeTableFlag": "N",
+    "GroupId": 513284321,
+    "IdField": "proposalStatus",
+    "IsSmall": "Y",
+    "Name": "TProposalStatus",
+    "NeedCache": "Y",
+    "NeedMultipleLanguage": "Y",
+    "RecordUsage": 3,
+    "ServiceName": "dd",
+    "SortType": "ASC"
+  },
+  "BusinessCodeTableValueList": [
+    {
+      "Code": 11,
+      "ConditionFields": [
+        {
+          "proposalStatus": "11"
+        }
+      ],
+      "Description": "Data Entry in Progress",
+      "Id": 11
+    },
+    {
+      "Code": 1,
+      "ConditionFields": [
+        {
+          "proposalStatus": "1"
+        }
+      ],
+      "Description": "Waiting for Initial Registration",
+      "Id": 1
+    },
+    {
+      "Code": 2,
+      "ConditionFields": [
+        {
+          "proposalStatus": "2"
+        }
+      ],
+      "Description": "Initial Registration in Progress",
+      "Id": 2
+    },
+    {
+      "Code": 3,
+      "ConditionFields": [
+        {
+          "proposalStatus": "3"
+        }
+      ],
+      "Description": "Initial Registration Completed",
+      "Id": 3
+    },
+    {
+      "Code": 80,
+      "ConditionFields": [
+        {
+          "proposalStatus": "80"
+        }
+      ],
+      "Description": "Accepted",
+      "Id": 80
+    },
+    {
+      "Code": 81,
+      "ConditionFields": [
+        {
+          "proposalStatus": "81"
+        }
+      ],
+      "Description": "Conditionally Accepted",
+      "Id": 81
+    },
+    {
+      "Code": 82,
+      "ConditionFields": [
+        {
+          "proposalStatus": "82"
+        }
+      ],
+      "Description": "Declined",
+      "Id": 82
+    },
+    {
+      "Code": 40,
+      "ConditionFields": [
+        {
+          "proposalStatus": "40"
+        }
+      ],
+      "Description": "Amendment in Progress",
+      "Id": 40
+    },
+    {
+      "Code": 84,
+      "ConditionFields": [
+        {
+          "proposalStatus": "84"
+        }
+      ],
+      "Description": "Postponed",
+      "Id": 84
+    },
+    {
+      "Code": 30,
+      "ConditionFields": [
+        {
+          "proposalStatus": "30"
+        }
+      ],
+      "Description": "Pending High Risk Issue",
+      "Id": 30
+    },
+    {
+      "Code": 85,
+      "ConditionFields": [
+        {
+          "proposalStatus": "85"
+        }
+      ],
+      "Description": "Inforce",
+      "Id": 85
+    },
+    {
+      "Code": 20,
+      "ConditionFields": [
+        {
+          "proposalStatus": "20"
+        }
+      ],
+      "Description": "Waiting for Verification",
+      "Id": 20
+    },
+    {
+      "Code": 31,
+      "ConditionFields": [
+        {
+          "proposalStatus": "31"
+        }
+      ],
+      "Description": "Waiting for Underwriting",
+      "Id": 31
+    },
+    {
+      "Code": 86,
+      "ConditionFields": [
+        {
+          "proposalStatus": "86"
+        }
+      ],
+      "Description": "Withdrawn",
+      "Id": 86
+    },
+    {
+      "Code": 10,
+      "ConditionFields": [
+        {
+          "proposalStatus": "10"
+        }
+      ],
+      "Description": "Waiting for Data Entry",
+      "Id": 10
+    },
+    {
+      "Code": 21,
+      "ConditionFields": [
+        {
+          "proposalStatus": "21"
+        }
+      ],
+      "Description": "Verification in Progress",
+      "Id": 21
+    },
+    {
+      "Code": 32,
+      "ConditionFields": [
+        {
+          "proposalStatus": "32"
+        }
+      ],
+      "Description": "Underwriting in Progress",
+      "Id": 32
+    }
+  ]
+}
