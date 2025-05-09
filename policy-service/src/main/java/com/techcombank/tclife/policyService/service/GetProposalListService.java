@@ -5,13 +5,12 @@ import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.exception.TechnicalException;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.service.ResponseWrapper;
-import com.techcombank.tclife.policyService.model.response.PolicyResponse;
+import com.techcombank.tclife.policyService.constant.PolicyErrorType;
 import com.techcombank.tclife.policyService.model.response.ProposalResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -31,14 +30,16 @@ public class GetProposalListService implements BaseService<BasePaginationRequest
         try {
             dob = dateFormat.parse("1991-01-01");
         } catch (ParseException e) {
-            throw new TechnicalException(HttpStatus.CONFLICT, "4090304", "Cannot Parse dob Date", "FAILED_TO_PARSE_DOB");
+            log.error("Cannot Parse dob Date");
+            throw new TechnicalException(PolicyErrorType.PARSE_DATE_ERROR);
         }
 
         Date creationDate = null;
         try {
             creationDate = dateFormat.parse("1991-01-01");
         } catch (ParseException e) {
-            throw new TechnicalException(HttpStatus.CONFLICT, "4090304", "Cannot Parse creation Date", "FAILED_TO_PARSE_CREATION_DATE");
+            log.error("Cannot Parse creation Date");
+            throw new TechnicalException(PolicyErrorType.PARSE_DATE_ERROR);
         }
 
         ProposalResponse proposal = ProposalResponse.builder()

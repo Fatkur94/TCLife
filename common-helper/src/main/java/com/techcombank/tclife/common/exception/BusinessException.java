@@ -7,6 +7,16 @@ import java.util.Map;
 
 public class BusinessException extends BaseException {
 
+    public BusinessException(ErrorDefinition errorDefinition) {
+        super(
+                errorDefinition.getHttpStatus(),
+                errorDefinition.getErrorCode(),
+                errorDefinition.getRootCause(),
+                errorDefinition.getErrorDesc(),
+                errorDefinition.getErrorMessage()
+        );
+    }
+
     public BusinessException(String errorCode, String errorDesc, String errorMessage) {
         super(HttpStatus.CONFLICT, errorCode, "", errorDesc, errorMessage);
     }

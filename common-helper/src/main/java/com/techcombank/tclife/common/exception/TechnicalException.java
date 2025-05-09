@@ -6,6 +6,16 @@ import java.util.Map;
 
 public class TechnicalException extends BaseException {
 
+    public TechnicalException(ErrorDefinition errorDefinition) {
+        super(
+                errorDefinition.getHttpStatus(),
+                errorDefinition.getErrorCode(),
+                errorDefinition.getRootCause(),
+                errorDefinition.getErrorDesc(),
+                errorDefinition.getErrorMessage()
+        );
+    }
+
     public TechnicalException(String errorCode, String errorDesc, String errorMessage) {
         super(HttpStatus.INTERNAL_SERVER_ERROR, errorCode, "", errorDesc, errorMessage);
     }

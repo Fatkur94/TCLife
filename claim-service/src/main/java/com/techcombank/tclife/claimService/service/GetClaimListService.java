@@ -38,7 +38,8 @@ public class GetClaimListService implements BaseService<BasePaginationRequest, B
         try {
             approvalDate = dateFormat.parse("1991-01-01");
         } catch (ParseException e) {
-            throw new TechnicalException(HttpStatus.CONFLICT, "4090205", "Cannot Parse approval Date", "FAILED_TO_PARSE_APPROVAL_DATE");
+            log.error("Cannot Parse approval Date");
+            throw new TechnicalException("5000203", "Cannot Parse approval Date");
         }
 
         ClaimResponse claims = ClaimResponse.builder()

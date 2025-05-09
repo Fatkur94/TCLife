@@ -5,12 +5,12 @@ import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.exception.TechnicalException;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.policyService.constant.PolicyErrorType;
 import com.techcombank.tclife.policyService.model.response.PolicyResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -30,7 +30,8 @@ public class GetPolicyListService implements BaseService<BasePaginationRequest, 
         try {
             effectiveDate = dateFormat.parse("2025-01-01");
         } catch (ParseException e) {
-            throw new TechnicalException(HttpStatus.CONFLICT, "4090303", "Cannot Parse effective Date", "FAILED_TO_PARSE_EFFECTIVE_DATE");
+            log.error("Cannot Parse effective Date");
+            throw new TechnicalException(PolicyErrorType.PARSE_DATE_ERROR);
         }
 
         PolicyResponse policy = PolicyResponse.builder()
