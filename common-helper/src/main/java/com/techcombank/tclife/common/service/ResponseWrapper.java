@@ -5,11 +5,14 @@ import com.techcombank.tclife.common.base.BasePaginationResponse;
 import lombok.Data;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
+
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseWrapper<T> {
     private final boolean success;
-    private final List<?> data;
+    private final T data;
     private final Integer page;
     private final Integer size;
     private final Long totalItems;
@@ -18,13 +21,13 @@ public class ResponseWrapper<T> {
     public ResponseWrapper(boolean success, T data) {
         this.success = success;
         if (data instanceof BasePaginationResponse<?> paginationResponse) {
-            this.data = paginationResponse.getData();
+            this.data = (T) paginationResponse.getData(); // Cast to T
             this.page = paginationResponse.getPage();
             this.size = paginationResponse.getSize();
             this.totalItems = paginationResponse.getTotalItems();
             this.totalPages = paginationResponse.getTotalPages();
         } else {
-            this.data = null;
+            this.data = data;
             this.page = null;
             this.size = null;
             this.totalItems = null;

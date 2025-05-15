@@ -43,9 +43,9 @@ public class GetProposalListService implements BaseService<BasePaginationRequest
         }
 
         ProposalResponse proposal = ProposalResponse.builder()
-                .customerName("Jane Smith")
+                .fullName("Jane Smith")
                 .leadId("LID789012")
-                .proposalNo("PROP456789")
+                .proposalId("PROP456789")
                 .dob(dob)
                 .creationDate(creationDate)
                 .proposalStatus("Pending")

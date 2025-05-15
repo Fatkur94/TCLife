@@ -13,13 +13,14 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProposalResponse {
-    private String customerName;
+    private String fullName;
     @JsonProperty("dob")
     private Date dob;
     private String leadId;
     @JsonProperty("creationDate")
     private Date creationDate;
-    private String proposalNo;
+    private Integer proposalAging;
+    private String proposalId;
     @JsonProperty("status")
     private String proposalStatus;
 }

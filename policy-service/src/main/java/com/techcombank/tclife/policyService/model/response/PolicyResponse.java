@@ -1,5 +1,6 @@
 package com.techcombank.tclife.policyService.model.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +17,6 @@ public class PolicyResponse {
     private String policyNo;
     private String productName;
     private Date effectiveDate;
+    @JsonProperty("status")
     private String policyStatus;
 }

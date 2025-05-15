@@ -1,0 +1,7 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: data-service
+  profiles:
+    active: dev

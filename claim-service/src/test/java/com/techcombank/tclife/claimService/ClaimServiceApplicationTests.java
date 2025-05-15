@@ -1,4 +1,4 @@
-package com.techcombank.tclife.claim_service;
+package com.techcombank.tclife.claimService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
