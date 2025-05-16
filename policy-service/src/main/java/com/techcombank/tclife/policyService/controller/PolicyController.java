@@ -2,7 +2,7 @@ package com.techcombank.tclife.policyService.controller;
 
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.policyService.model.request.GetPolicyDetailRequest;
 import com.techcombank.tclife.policyService.model.response.GetPolicyDetailResponse;
 import com.techcombank.tclife.policyService.model.response.PolicyResponse;

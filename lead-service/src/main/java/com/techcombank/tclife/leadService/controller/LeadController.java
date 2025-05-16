@@ -2,7 +2,7 @@ package com.techcombank.tclife.leadService.controller;
 
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.leadService.model.request.GetLeadDetailRequest;
 import com.techcombank.tclife.leadService.model.response.GetLeadDetailResponse;
 import com.techcombank.tclife.leadService.model.response.LeadResponse;

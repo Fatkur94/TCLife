@@ -4,7 +4,7 @@ import com.techcombank.tclife.claimService.model.response.ClaimResponse;
 import com.techcombank.tclife.claimService.service.GetClaimListService;
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

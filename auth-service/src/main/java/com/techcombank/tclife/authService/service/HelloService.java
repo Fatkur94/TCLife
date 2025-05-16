@@ -4,7 +4,7 @@ import com.techcombank.tclife.authService.model.response.HelloResponse;
 import com.techcombank.tclife.common.exception.BusinessException;
 import com.techcombank.tclife.common.model.EmptyRequest;
 import com.techcombank.tclife.common.service.BaseService;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

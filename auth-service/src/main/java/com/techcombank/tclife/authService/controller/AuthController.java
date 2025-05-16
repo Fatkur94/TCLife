@@ -7,7 +7,7 @@ import com.techcombank.tclife.authService.service.HelloPaginationService;
 import com.techcombank.tclife.authService.service.HelloService;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.model.EmptyRequest;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

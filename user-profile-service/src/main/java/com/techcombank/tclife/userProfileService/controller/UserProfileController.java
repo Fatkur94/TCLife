@@ -1,9 +1,7 @@
 package com.techcombank.tclife.userProfileService.controller;
 
-import com.techcombank.tclife.common.base.BasePaginationRequest;
-import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.model.EmptyRequest;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.userProfileService.model.response.GetUserProfileResponse;
 import com.techcombank.tclife.userProfileService.service.GetUserProfileService;
 import org.springframework.web.bind.annotation.GetMapping;

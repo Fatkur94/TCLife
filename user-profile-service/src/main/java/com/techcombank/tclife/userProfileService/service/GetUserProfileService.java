@@ -2,7 +2,7 @@ package com.techcombank.tclife.userProfileService.service;
 
 import com.techcombank.tclife.common.model.EmptyRequest;
 import com.techcombank.tclife.common.service.BaseService;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.userProfileService.model.response.GetUserProfileResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

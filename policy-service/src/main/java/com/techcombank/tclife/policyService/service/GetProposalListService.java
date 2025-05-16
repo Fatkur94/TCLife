@@ -4,7 +4,7 @@ import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.exception.TechnicalException;
 import com.techcombank.tclife.common.service.BaseService;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.policyService.constant.PolicyErrorType;
 import com.techcombank.tclife.policyService.model.response.ProposalResponse;
 import lombok.extern.slf4j.Slf4j;

@@ -1,11 +1,7 @@
-package com.techcombank.tclife.common.service;
+package com.techcombank.tclife.common.wrapper;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
-import lombok.Data;
-
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 @Data

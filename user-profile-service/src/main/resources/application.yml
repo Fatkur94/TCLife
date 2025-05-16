@@ -5,3 +5,14 @@ spring:
     name: user-profile-service
   profiles:
     active: dev
+integration:
+  portal:
+    connectionRequestTimeout: 10000
+    connect-timeout: 10000
+    read-timeout: 10000
+    secret-key:
+      value: IiK7ofVZTJwFu41Gezo3mlq2RnDDoTTFourIV2hvaiF0AyCnvy6IBzHPc7j5fcCn
+    data-service:
+      base-url: http://localhost:8085/data-service
+      get-config:
+        url: ${integration.portal.data-service.base-url}/api/v1/config

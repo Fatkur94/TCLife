@@ -1,7 +1,7 @@
 package com.techcombank.tclife.policyService.service;
 
 import com.techcombank.tclife.common.service.BaseService;
-import com.techcombank.tclife.common.service.ResponseWrapper;
+import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.policyService.model.request.GetPolicyDetailRequest;
 import com.techcombank.tclife.policyService.model.response.GetPolicyDetailResponse;
 import lombok.extern.slf4j.Slf4j;
