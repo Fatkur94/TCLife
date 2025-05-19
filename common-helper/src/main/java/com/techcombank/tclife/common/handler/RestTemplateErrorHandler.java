@@ -3,10 +3,16 @@ package com.techcombank.tclife.common.handler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techcombank.tclife.common.exception.BusinessException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.techcombank.tclife.common.exception.TechnicalException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.ResponseErrorHandler;
+
+import java.net.SocketTimeoutException;
 import java.net.URI;
 import org.springframework.http.HttpMethod;
 import java.io.BufferedReader;
@@ -20,6 +26,7 @@ public class RestTemplateErrorHandler implements ResponseErrorHandler {
 
     @Override
     public boolean hasError(ClientHttpResponse clientHttpResponse) throws IOException {
+        log.info("Checking for error in response: {}", clientHttpResponse.getStatusCode());
         return (
                 clientHttpResponse.getStatusCode().is4xxClientError()
                         || clientHttpResponse.getStatusCode().is5xxServerError());
@@ -27,6 +34,7 @@ public class RestTemplateErrorHandler implements ResponseErrorHandler {
 
     @Override
     public void handleError(URI url, HttpMethod method, ClientHttpResponse clientHttpResponse) throws IOException {
+        log.info("test read timeout ", clientHttpResponse.getStatusCode());
         BufferedReader reader = new BufferedReader(new InputStreamReader(clientHttpResponse.getBody()));
         String responseBody = reader.lines().collect(Collectors.joining(""));
 

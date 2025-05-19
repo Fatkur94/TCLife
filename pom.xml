@@ -39,6 +39,7 @@
         <springdoc.version>2.6.0</springdoc.version>
         <apache.httpcomponents>5.4.1</apache.httpcomponents>
         <org.slf4j>2.0.17</org.slf4j>
+        <aspectj>1.9.22</aspectj>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -121,6 +122,11 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
                 <version>${spring-boot.version}</version>
                 <optional>true</optional>
@@ -149,6 +155,11 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${org.slf4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -2,6 +2,8 @@ package com.techcombank.tclife.policyService.controller;
 
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
+import com.techcombank.tclife.common.security.annotation.ApiMiddleware;
+import com.techcombank.tclife.common.security.model.ApiAccessScope;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.policyService.model.response.ProposalResponse;
 import com.techcombank.tclife.policyService.service.GetProposalListService;
@@ -19,6 +21,7 @@ public class ProposalController {
         this.getProposalListService = getProposalListService;
     }
 
+    @ApiMiddleware(scope = {ApiAccessScope.SALES})
     @Operation(summary = "")
     @GetMapping("/proposals")
     public ResponseWrapper<BasePaginationResponse<ProposalResponse>> getProposalList(BasePaginationRequest request) {

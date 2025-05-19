@@ -2,6 +2,8 @@ package com.techcombank.tclife.leadService.controller;
 
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
+import com.techcombank.tclife.common.security.annotation.ApiMiddleware;
+import com.techcombank.tclife.common.security.model.ApiAccessScope;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.leadService.model.request.GetLeadDetailRequest;
 import com.techcombank.tclife.leadService.model.response.GetLeadDetailResponse;
@@ -27,6 +29,7 @@ public class LeadController {
 
     }
 
+    @ApiMiddleware(scope = {ApiAccessScope.SALES})
     @GetMapping("/leads")
     public ResponseWrapper<BasePaginationResponse<LeadResponse>> getLeadList(BasePaginationRequest request) {
         return getLeadListService.proceed(request);

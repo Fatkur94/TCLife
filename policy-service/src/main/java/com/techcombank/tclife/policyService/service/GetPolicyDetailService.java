@@ -1,7 +1,9 @@
 package com.techcombank.tclife.policyService.service;
 
+import com.techcombank.tclife.common.model.EmptyRequest;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
+import com.techcombank.tclife.policyService.client.DataServiceClient;
 import com.techcombank.tclife.policyService.model.request.GetPolicyDetailRequest;
 import com.techcombank.tclife.policyService.model.response.GetPolicyDetailResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +14,12 @@ import java.time.LocalDate;
 @Service
 @Slf4j
 public class GetPolicyDetailService implements BaseService<GetPolicyDetailRequest, GetPolicyDetailResponse> {
+    private DataServiceClient dataServiceClient;
+
+    public GetPolicyDetailService(DataServiceClient dataServiceClient) {
+        this.dataServiceClient = dataServiceClient;
+    }
+
     @Override
     public ResponseWrapper<GetPolicyDetailResponse> proceed(GetPolicyDetailRequest input) {
         GetPolicyDetailResponse policyDetail = GetPolicyDetailResponse.builder()
@@ -30,6 +38,8 @@ public class GetPolicyDetailService implements BaseService<GetPolicyDetailReques
                 .premiumStatus("Paid")
                 .standardPremium(18000.75)
                 .build();
+        var dataService = dataServiceClient.getConfig(new EmptyRequest());
+        System.out.println(dataService.getParameter());
         return successResponse(policyDetail);
     }
 }

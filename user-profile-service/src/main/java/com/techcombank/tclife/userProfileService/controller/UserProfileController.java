@@ -1,6 +1,8 @@
 package com.techcombank.tclife.userProfileService.controller;
 
 import com.techcombank.tclife.common.model.EmptyRequest;
+import com.techcombank.tclife.common.security.annotation.ApiMiddleware;
+import com.techcombank.tclife.common.security.model.ApiAccessScope;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.userProfileService.model.response.GetUserProfileResponse;
 import com.techcombank.tclife.userProfileService.service.GetUserProfileService;
@@ -18,6 +20,7 @@ public class UserProfileController {
         this.getUserProfileService = getUserProfileService;
     }
 
+    @ApiMiddleware(scope={ApiAccessScope.SALES})
     @GetMapping(value="/sales/profile")
     public ResponseWrapper<GetUserProfileResponse> getUserProfile(EmptyRequest request) {
         return getUserProfileService.proceed(request);

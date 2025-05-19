@@ -4,6 +4,8 @@ import com.techcombank.tclife.claimService.model.response.ClaimResponse;
 import com.techcombank.tclife.claimService.service.GetClaimListService;
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
+import com.techcombank.tclife.common.security.annotation.ApiMiddleware;
+import com.techcombank.tclife.common.security.model.ApiAccessScope;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,7 @@ public class ClaimController {
         return ResponseEntity.ok("hello");
     }
 
+    @ApiMiddleware(scope={ApiAccessScope.CUSTOMER})
     @GetMapping("/claims")
     public ResponseWrapper<BasePaginationResponse<ClaimResponse>> getClaimList(BasePaginationRequest request) {
         return getClaimListService.proceed(request);
