@@ -8,27 +8,31 @@ import com.techcombank.tclife.common.security.model.ApiAccessScopes;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.policyService.model.request.GetPolicyDetailRequest;
 import com.techcombank.tclife.policyService.model.response.GetPolicyDetailResponse;
+import com.techcombank.tclife.policyService.model.response.PolicyProposalStatusResponse;
 import com.techcombank.tclife.policyService.model.response.PolicyResponse;
+import com.techcombank.tclife.policyService.service.CommonSharedService;
 import com.techcombank.tclife.policyService.service.GetPolicyDetailService;
 import com.techcombank.tclife.policyService.service.GetPolicyListService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/policy-service/api/v1")
 @Tag(name = "Policy Management", description = "APIs for managing policy")
+@RequiredArgsConstructor
+@Validated
 public class PolicyController {
 
-    private GetPolicyListService getPolicyListService;
-    private GetPolicyDetailService getPolicyDetailService;
-
-    public PolicyController(GetPolicyListService getPolicyListService,
-                            GetPolicyDetailService getPolicyDetailService) {
-        this.getPolicyListService = getPolicyListService;
-        this.getPolicyDetailService = getPolicyDetailService;
-    }
+    private final GetPolicyListService getPolicyListService;
+    private final GetPolicyDetailService getPolicyDetailService;
+    private final CommonSharedService commonSharedService;
 
     @GetMapping
     public ResponseEntity<String> hello() {
@@ -38,7 +42,7 @@ public class PolicyController {
     @ApiMiddleware(scope = {ApiAccessScope.SALES})
     @Operation(summary = "")
     @GetMapping("/policies")
-    public ResponseWrapper<BasePaginationResponse<PolicyResponse>> getPolicyList(BasePaginationRequest request) {
+    public ResponseWrapper<BasePaginationResponse<PolicyResponse>> getPolicyList(BasePaginationRequest request) throws IOException {
         return getPolicyListService.proceed(request);
     }
 
@@ -47,4 +51,10 @@ public class PolicyController {
     public ResponseWrapper<GetPolicyDetailResponse> getPolicyDetail(@PathVariable("policyNo") String policyNo) {
         return getPolicyDetailService.proceed(GetPolicyDetailRequest.builder().policyNo(policyNo).build());
     }
+
+    @GetMapping(value = "/policies/status")
+    public ResponseWrapper<List<PolicyProposalStatusResponse>>getPolicyProposalStatus() throws IOException {
+        return commonSharedService.getCommonStatusForProposalAndPolicy();
+    }
+
 }
