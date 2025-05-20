@@ -43,6 +43,7 @@
         <org.apache.tomcat.embed.version>10.1.40</org.apache.tomcat.embed.version>
         <jakarta.persistence.version>3.1.0</jakarta.persistence.version>
         <org.hibernate.orm.version>6.6.13.Final</org.hibernate.orm.version>
+        <postgres.version>42.7.3</postgres.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -189,6 +190,12 @@
                 <groupId>org.hibernate.orm</groupId>
                 <artifactId>hibernate-core</artifactId>
                 <version>${org.hibernate.orm.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgres.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
