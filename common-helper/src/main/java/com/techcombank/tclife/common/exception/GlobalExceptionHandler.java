@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
         }
         return ResponseEntity
                 .status(HttpStatus.GATEWAY_TIMEOUT)
-                .body(buildErrorResponse(ex, "5000000", "SERVICE_TIMOUT", "An unexpected error occurred"));
+                .body(buildErrorResponse(ex, "5000000", "SERVICE_TIMEOUT", "An unexpected error occurred"));
     }
 
     private Map<String, Object> buildErrorResponse(BaseException ex) {
