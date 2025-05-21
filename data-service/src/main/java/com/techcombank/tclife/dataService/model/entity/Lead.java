@@ -1,10 +1,7 @@
 package com.techcombank.tclife.dataService.model.entity;
 
 import com.techcombank.tclife.common.base.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,8 +18,8 @@ import java.util.Date;
 public class Lead extends BaseEntity {
 
     @Id
-    @Column(name = "lead_id")
-    private String leadId;
+    @Column(name = "id")
+    private String Id;
 
     @Column(name = "ref_code")
     private String refCode;
@@ -72,7 +69,7 @@ public class Lead extends BaseEntity {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "i_OIS_code")
+    @Column(name = "iois_code")
     private String iOISCode;
 
     @Column(name = "province_code")
