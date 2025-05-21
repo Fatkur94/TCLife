@@ -2,8 +2,10 @@ package com.techcombank.tclife.quotationService.service;
 
 import com.techcombank.tclife.common.util.JacksonUtil;
 import com.techcombank.tclife.dataService.controller.GoalAPI;
-import com.techcombank.tclife.dataService.model.entity.dto.GoalQuestionResponseDto;
+import com.techcombank.tclife.dataService.model.entity.Goal;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class QuotationService {
@@ -16,7 +18,8 @@ public class QuotationService {
     }
 
     public void goalQuestionnaireWorkflow() {
-        GoalQuestionResponseDto goalQuestionResponseDto = goalAPI.getQuestionsResponse();
-        System.out.println(jackson.toJson(goalQuestionResponseDto));
+        List<Goal> goals = goalAPI.getGoals();
+        // TODO
+        System.out.println(jackson.toJson(goals));
     }
 }

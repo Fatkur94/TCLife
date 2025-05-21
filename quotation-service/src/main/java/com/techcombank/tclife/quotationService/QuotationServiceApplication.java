@@ -10,13 +10,12 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {
 		"com.techcombank.tclife.quotationService",
-		"com.techcombank.tclife.common.exception"
+		"com.techcombank.tclife.common.exception",
+		"com.techcombank.tclife.dataservice"
 })
-@EnableFeignClients(basePackages = "com.techcombank.tclife.dataservice")
+@EnableFeignClients(basePackages = "com.techcombank.tclife.dataservice.controller")
 public class QuotationServiceApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(QuotationServiceApplication.class, args);
 	}
-
 }

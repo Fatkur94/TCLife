@@ -1,4 +1,4 @@
-package com.techcombank.tclife.dataService.model.entity.dto;
+package com.techcombank.tclife.quotationService.model.response.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
