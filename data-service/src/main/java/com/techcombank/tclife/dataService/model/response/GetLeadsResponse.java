@@ -1,21 +1,21 @@
-package com.techcombank.tclife.leadService.model.response;
+package com.techcombank.tclife.dataService.model.response;
 
+import com.techcombank.tclife.common.base.BaseResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LeadResponse {
+public class GetLeadsResponse extends BaseResponse {
     private String leadId;
     private String fullName;
-    private LocalDate dob;
-    private LocalDateTime creationDate;
+    private Date dob;
+    private Date creationDate;
     private Integer leadAging;
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
-public class DataServiceClient {
+public class IntegrationServiceClient {
 
     @Value("${integration.portal.data-service.get-config.url}")
     private String getConfigUrl;
@@ -21,7 +21,7 @@ public class DataServiceClient {
 
     private WebClient portalWebClient;
 
-    public DataServiceClient(
+    public IntegrationServiceClient(
                              @Qualifier(value = "portalWebClient") WebClient portalWebClient) {
         this.portalWebClient = portalWebClient;
     }
