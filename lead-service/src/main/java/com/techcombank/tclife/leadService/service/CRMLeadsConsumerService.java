@@ -16,7 +16,10 @@ public class CRMLeadsConsumerService {
     }
 
     public EmptyResponse proceed(CRMLeadsRequest input) {
-        dataServiceClient.postLead(input);
+        log.info("test caller");
+        dataServiceClient.postLeads(input);
+        log.info("test caller success");
+
         // TBD execute callback to CRM
         return new EmptyResponse();
     }

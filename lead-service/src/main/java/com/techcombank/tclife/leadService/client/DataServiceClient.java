@@ -1,17 +1,14 @@
 package com.techcombank.tclife.leadService.client;
 
-import com.techcombank.tclife.common.model.EmptyRequest;
+
 import com.techcombank.tclife.common.model.EmptyResponse;
 import com.techcombank.tclife.common.wrapper.ClientResponseWrapper;
 import com.techcombank.tclife.leadService.model.request.CRMLeadsRequest;
-import com.techcombank.tclife.leadService.model.response.ConfigResponse;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
 public class DataServiceClient {
@@ -22,27 +19,20 @@ public class DataServiceClient {
     @Value("${integration.portal.data-service.post-lead.url}")
     private String postLeadUrl;
 
-    private RestTemplate portalRestTemplate;
+    private WebClient portalWebClient;
 
-    public DataServiceClient(@Qualifier(value = "portalRestTemplate") RestTemplate portalRestTemplate) {
-        this.portalRestTemplate = portalRestTemplate;
+    public DataServiceClient(
+                             @Qualifier(value = "portalWebClient") WebClient portalWebClient) {
+        this.portalWebClient = portalWebClient;
     }
 
-    public ConfigResponse getConfig(EmptyRequest request) {
-        ConfigResponse response = portalRestTemplate.exchange(getConfigUrl,
-                HttpMethod.POST,
-                new HttpEntity<>(request),
-                new ParameterizedTypeReference<ClientResponseWrapper<ConfigResponse>>() {}
-            ).getBody().getData();
-        return response;
-    }
-
-    public EmptyResponse postLead(CRMLeadsRequest request) {
-        EmptyResponse response = portalRestTemplate.exchange(postLeadUrl,
-                HttpMethod.POST,
-                new HttpEntity<>(request),
-                new ParameterizedTypeReference<ClientResponseWrapper<EmptyResponse>>() {}
-        ).getBody().getData();
-        return response;
+    public EmptyResponse postLeads(CRMLeadsRequest request) {
+            return portalWebClient.post()
+                    .uri(postLeadUrl)
+                    .bodyValue(request)
+                    .retrieve()
+                    .bodyToMono(new ParameterizedTypeReference<ClientResponseWrapper<EmptyResponse>>() {})
+                    .map(ClientResponseWrapper::getData)
+                    .block();
     }
 }

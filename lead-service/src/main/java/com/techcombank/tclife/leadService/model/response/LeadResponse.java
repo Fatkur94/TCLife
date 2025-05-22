@@ -19,10 +19,3 @@ public class LeadResponse {
     private LocalDateTime creationDate;
     private Integer leadAging;
 }
-//{
-//  "fullName": "Jane Smith",
-//  "dob": "1985-08-22",
-//  "leadId": "LEAD2025001",
-//  "creationDate": "2025-05-15T09:00:00",
-//  "leadAging": 10
-//}
