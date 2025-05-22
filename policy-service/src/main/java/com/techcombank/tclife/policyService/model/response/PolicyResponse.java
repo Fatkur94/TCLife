@@ -16,7 +16,7 @@ public class PolicyResponse {
     private String fullName;
     private String policyNo;
     private String productName;
-    private Date effectiveDate;
+    private String effectiveDate;
     @JsonProperty("status")
     private String policyStatus;
 }

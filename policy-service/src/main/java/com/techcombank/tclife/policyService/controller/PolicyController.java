@@ -39,7 +39,7 @@ public class PolicyController {
         return ResponseEntity.ok("hello");
     }
 
-    @ApiMiddleware(scope = {ApiAccessScope.SALES})
+    /*@ApiMiddleware(scope = {ApiAccessScope.SALES})*/
     @Operation(summary = "")
     @GetMapping("/policies")
     public ResponseWrapper<BasePaginationResponse<PolicyResponse>> getPolicyList(BasePaginationRequest request) throws IOException {

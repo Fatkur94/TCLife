@@ -5,6 +5,11 @@ spring:
     name: policy-service
   profiles:
     active: dev
+  redis:
+    host: localhost
+    port: 6379
+    password: # Optional
+    database: 0
 integration:
   portal:
     connectionRequestTimeout: 10000
@@ -13,6 +18,17 @@ integration:
     secret-key:
       value: IiK7ofVZTJwFu41Gezo3mlq2RnDDoTTFourIV2hvaiF0AyCnvy6IBzHPc7j5fcCn
     data-service:
-      base-url: http://localhost:3000/data-service
+      base-url: http://localhost:8085/data-service
       get-config:
         url: ${integration.portal.data-service.base-url}/api/v1/config
+    data-master:
+      base-url: http://localhost:8085/data-master
+      get-config:
+        url: ${integration.portal.data-master-service.base-url}/api/v1/config
+data-master:
+  url: http://localhost:8085
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full

@@ -6,6 +6,8 @@ import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.exception.TechnicalException;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
+import com.techcombank.tclife.dataService.controller.DataAPI;
+import com.techcombank.tclife.dataService.model.entity.MasterTable;
 import com.techcombank.tclife.policyService.constant.PolicyErrorType;
 import com.techcombank.tclife.policyService.model.entity.ProposalPolicyData;
 import com.techcombank.tclife.policyService.model.entity.ProposalPolicyPayload;
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,27 +36,14 @@ import java.util.List;
 public class GetPolicyListService implements BaseService<BasePaginationRequest, BasePaginationResponse<PolicyResponse>> {
 
     private final CommonSharedService commonSharedService;
+    private final DataAPI dataAPI;
 
     @Override
     public ResponseWrapper<BasePaginationResponse<PolicyResponse>> proceed(BasePaginationRequest input) {
         Pageable pageable = input.toPageable();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/mm/yyyy");
-        Date effectiveDate = null;
-        try {
-            effectiveDate = dateFormat.parse("2025-01-01");
-        } catch (ParseException e) {
-            log.error("Cannot Parse effective Date");
-            throw new TechnicalException(PolicyErrorType.PARSE_DATE_ERROR);
-        }
+        SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
 
-        /*PolicyResponse policy = PolicyResponse.builder()
-                .fullName("John Doe")
-                .policyNo("POL123456")
-                .productName("Life Insurance")
-                .effectiveDate(effectiveDate)
-                .policyStatus("Active")
-                .build();*/
         String resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\payload.json";
         ObjectMapper objectMapper = new ObjectMapper();
         ProposalPolicyPayload policy = null;
@@ -63,14 +53,8 @@ public class GetPolicyListService implements BaseService<BasePaginationRequest, 
             throw new RuntimeException(e);
         }
 
-        //List<PolicyResponse> policyResponses = Arrays.asList(policy);
         List<PolicyResponse> policyResponses = new ArrayList<>();
-        List<PolicyProposalStatusResponse> statusCode = null;
-        try {
-            statusCode = commonSharedService.getStatusPayload("test");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        List<MasterTable> statusCode = dataAPI.getENStatusPayload();
 
         for(ProposalPolicyData x : policy.getData()){
             PolicyResponse policyJson = new PolicyResponse();
@@ -78,13 +62,13 @@ public class GetPolicyListService implements BaseService<BasePaginationRequest, 
             policyJson.setPolicyNo(x.getPolicyNo());
             Date submissionDate = null;
             try {
-                submissionDate = dateFormat2.parse(x.getSubmissionDate());
+                submissionDate = dateFormat.parse(x.getSubmissionDate());
             } catch (ParseException e) {
                 log.error("Cannot Parse effective Date");
                 throw new TechnicalException(PolicyErrorType.PARSE_DATE_ERROR);
             }
-            policyJson.setEffectiveDate(submissionDate);
-            PolicyProposalStatusResponse policyProposalStatusResponse = statusCode.stream().filter(status -> x.getPolicyStatus().equals(status.getCode())).findAny().orElse(null);
+            policyJson.setEffectiveDate(dateFormat2.format(submissionDate));
+            MasterTable policyProposalStatusResponse = statusCode.stream().filter(status -> x.getPolicyStatus().equals(status.getCode())).findAny().orElse(null);
             policyJson.setPolicyStatus(policyProposalStatusResponse.getDesc());
             policyResponses.add(policyJson);
         }

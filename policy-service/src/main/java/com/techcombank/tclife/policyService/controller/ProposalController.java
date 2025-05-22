@@ -8,18 +8,18 @@ import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.policyService.model.response.ProposalResponse;
 import com.techcombank.tclife.policyService.service.GetProposalListService;
 import io.swagger.v3.oas.annotations.Operation;
+import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/policy-service/api/v1")
+@RequiredArgsConstructor
+@Validated
 public class ProposalController {
-    public GetProposalListService getProposalListService;
-
-    public ProposalController(GetProposalListService getProposalListService) {
-        this.getProposalListService = getProposalListService;
-    }
+    public final GetProposalListService getProposalListService;
 
     @ApiMiddleware(scope = {ApiAccessScope.SALES})
     @Operation(summary = "")

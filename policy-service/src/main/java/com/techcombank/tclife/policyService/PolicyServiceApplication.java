@@ -9,7 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {
 		"com.techcombank.tclife.policyService",
-		"com.techcombank.tclife.common.exception"
+		"com.techcombank.tclife.common.exception",
+		"com.techcombank.tclife.dataService"
 })
 public class PolicyServiceApplication {
 
