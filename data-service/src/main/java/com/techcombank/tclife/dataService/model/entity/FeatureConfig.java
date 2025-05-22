@@ -1,11 +1,13 @@
 package com.techcombank.tclife.dataService.model.entity;
 
+import com.techcombank.tclife.common.util.JsonbConverter;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Entity
 @Table(name = "feature_config",
@@ -30,8 +32,9 @@ public class FeatureConfig {
     @Column(name = "is_enabled", nullable = false)
     private boolean isEnabled = false;
 
+    @Convert(converter = JsonbConverter.class)
     @Column(columnDefinition = "jsonb")
-    private String config;
+    private Map<String, Object> config;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
