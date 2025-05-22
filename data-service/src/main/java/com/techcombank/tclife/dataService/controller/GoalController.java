@@ -1,6 +1,8 @@
 package com.techcombank.tclife.dataService.controller;
 
 import com.techcombank.tclife.dataService.model.entity.Goal;
+import com.techcombank.tclife.dataService.service.GoalService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +11,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/data/goals")
+@AllArgsConstructor
 public class GoalController implements GoalAPI {
+
+    private final GoalService goalService;
 
     @Override
     public List<Goal> getGoals() {
