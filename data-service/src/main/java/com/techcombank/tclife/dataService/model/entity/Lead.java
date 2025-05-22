@@ -1,7 +1,10 @@
 package com.techcombank.tclife.dataService.model.entity;
 
 import com.techcombank.tclife.common.base.BaseEntity;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

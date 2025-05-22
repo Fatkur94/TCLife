@@ -11,9 +11,9 @@ spring:
     password: # Optional
     database: 0
   datasource:
-    url: jdbc:postgresql://localhost:5432/demotcb
-    username: mrohman
-    password:
+    url: jdbc:postgresql://localhost:5432/tclife_db
+    username: tclife_user
+    password: strong_password
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
