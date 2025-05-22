@@ -12,3 +12,14 @@ integration:
     read-timeout: 10000
     secret-key:
       value: IiK7ofVZTJwFu41Gezo3mlq2RnDDoTTFourIV2hvaiF0AyCnvy6IBzHPc7j5fcCn
+    data-master:
+      base-url: http://localhost:8085/data-master
+      get-config:
+        url: ${integration.portal.data-master-service.base-url}/api/v1/config
+data-master:
+  url: http://localhost:8085
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full

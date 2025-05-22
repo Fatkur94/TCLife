@@ -21,8 +21,10 @@ public class IntegrationController {
 
     private final IntegrationService integrationService;
 
-    @PostMapping("/saveGenderEng")
-    public String saveMasterTableGender() {
+    @PostMapping("/savePolicyProposalStatusEng")
+    public String saveENMasterTablePolicyProposalStatus() {
+        String returnedStatus = integrationService.saveENPolicyMasterTable();
+
         return "Saved: ";
     }
 

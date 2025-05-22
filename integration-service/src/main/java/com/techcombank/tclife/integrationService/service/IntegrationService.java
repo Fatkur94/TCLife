@@ -5,6 +5,6 @@ import com.techcombank.tclife.dataService.model.entity.MasterTable;
 import java.util.List;
 
 public interface IntegrationService {
-    public String saveMasterTable (String tableCode, String language);
+    public String saveENPolicyMasterTable();
     public List<MasterTable> retrieveMasterTable (String tableCode, String language);
 }

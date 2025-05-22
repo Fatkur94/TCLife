@@ -24,8 +24,8 @@ public class IntegrationServiceImpl implements IntegrationService{
     private final DataAPI dataAPI;
 
     @Override
-    public String saveMasterTable(String tableCode, String language) {
-        List<MasterTable> masterTables  = this.retrieveMasterTable(tableCode,language);
+    public String saveENPolicyMasterTable() {
+        List<MasterTable> masterTables  = dataAPI.saveENMasterStatus();
         return "";
     }
 
