@@ -1,18 +1,48 @@
 package com.techcombank.tclife.dataService.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.techcombank.tclife.dataService.model.dto.BusinessTblValue;
 import com.techcombank.tclife.dataService.model.dto.MTPayload;
+import com.techcombank.tclife.dataService.model.dto.Request.MasterRawRequest;
 import com.techcombank.tclife.dataService.model.entity.MasterTable;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class DataServiceImpl implements DataService{
+
+    private final RedisService redisService;
 
     @Override
     public MTPayload retrieveMasterTable(String language, String tableCd) throws IOException {
+        String resource = null;
+        if(tableCd.equals("TProposalStatus")) {
+            resource = switch (language) {
+                case "en_US" ->
+                        "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMock.json";
+                case "th_TH" ->
+                        "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMockTH.json";
+                case "zh_CN" ->
+                        "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMockCN.json";
+                case "zh_TW" ->
+                        "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMockTW.json";
+                default ->
+                        "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMock.json";
+            };
+        }
+        //later change to response from external
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(new File(resource), MTPayload.class);
+    }
+
+    @Override
+    public List<MasterTable> saveMasterTable(String language, String tableCd) {
         /*
         //need to call api mastertable from data service
         HttpHeaders headers = new HttpHeaders();
@@ -55,11 +85,31 @@ public class DataServiceImpl implements DataService{
         }
         //later change to response from external
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(new File(resource), MTPayload.class);
-    }
+        List<MasterTable> masterTableList = new ArrayList<>();
+        try {
+            MTPayload masterRaw =  objectMapper.readValue(new File(resource), MTPayload.class);
+            List<BusinessTblValue> valueCode = masterRaw.getBusinessCodeTableValueListList();
 
-    @Override
-    public String saveMasterTable(MasterTable table) {
-        return "";
+            for(BusinessTblValue descValue : valueCode){
+                MasterTable policyProposalStatusResponse = new MasterTable();
+                policyProposalStatusResponse.setCode(descValue.getCode());
+                policyProposalStatusResponse.setDesc(descValue.getDescription());
+                masterTableList.add(policyProposalStatusResponse);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        if(tableCd.equals("TProposalStatus")) {
+            switch (language) {
+                case "en_US" -> redisService.saveData("payloadStatusENG", masterTableList);
+                case "th_TH" -> redisService.saveData("payloadStatusTH", masterTableList);
+                case "zh_CN" -> redisService.saveData("payloadStatusCN", masterTableList);
+                case "zh_TW" -> redisService.saveData("payloadStatusTW", masterTableList);
+                default -> redisService.saveData("payloadStatus", masterTableList);
+            };
+        }
+
+        return masterTableList;
     }
 }
