@@ -46,6 +46,8 @@
         <openfeign.version>4.2.0</openfeign.version>
         <apache.http.version>4.5.14</apache.http.version>
         <cognito.version>2.31.47</cognito.version>
+        <oauth2-resource-server.version>3.4.5</oauth2-resource-server.version>
+        <sp-boot-starter-security.version>3.4.5</sp-boot-starter-security.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -234,6 +236,18 @@
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>cognitoidentityprovider</artifactId>
                 <version>${cognito.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+                <version>${oauth2-resource-server.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${sp-boot-starter-security.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

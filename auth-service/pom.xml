@@ -18,6 +18,16 @@
 		<java.version>21</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>com.techcombank.tclife</groupId>
+			<artifactId>common-helper</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.techcombank.tclife</groupId>
+			<artifactId>data-service</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -36,10 +46,7 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.techcombank.tclife</groupId>
-			<artifactId>common-helper</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
@@ -52,6 +59,16 @@
 		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
 			<artifactId>cognitoidentityprovider</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 	</dependencies>
