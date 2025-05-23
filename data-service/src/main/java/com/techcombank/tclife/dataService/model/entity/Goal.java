@@ -28,6 +28,6 @@ public class Goal {
     @Column(name = "is_active")
     private boolean isActive;
 
-    @OneToMany(mappedBy = "goal", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "goal", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<GoalQuestion> questions;
 }
