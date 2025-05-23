@@ -1,36 +1,31 @@
 package com.techcombank.tclife.authService.controller;
 
-import com.techcombank.tclife.authService.model.request.UserRequest;
-import com.techcombank.tclife.authService.model.response.HelloResponse;
-import com.techcombank.tclife.authService.model.response.UserResponse;
-import com.techcombank.tclife.authService.service.HelloPaginationService;
-import com.techcombank.tclife.authService.service.HelloService;
-import com.techcombank.tclife.common.base.BasePaginationResponse;
-import com.techcombank.tclife.common.model.EmptyRequest;
-import com.techcombank.tclife.common.wrapper.ResponseWrapper;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.techcombank.tclife.authService.model.request.LoginRequest;
+import com.techcombank.tclife.authService.model.request.RegisterRequest;
+import com.techcombank.tclife.authService.model.response.AuthResponse;
+import com.techcombank.tclife.authService.service.CognitoService;
+import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth-service")
+@AllArgsConstructor
 public class AuthController {
-    public HelloService helloService;
 
-    public HelloPaginationService helloPaginationService;
+    private final CognitoService cognitoService;
 
-    public AuthController(HelloService helloService, HelloPaginationService helloPaginationService) {
-        this.helloService = helloService;
-        this.helloPaginationService = helloPaginationService;
+    @PostMapping("/register")
+    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
+        boolean result = cognitoService.registerUser(request);
+        return ResponseEntity.ok(new AuthResponse(result, result ? "User registered successfully." : "Registration failed.", null, false));
     }
 
-    @GetMapping
-    public ResponseWrapper<HelloResponse> getAllForms() throws Exception {
-        return helloService.proceed(new EmptyRequest());
-    }
-
-    @GetMapping("/pagination")
-    public ResponseWrapper<BasePaginationResponse<UserResponse>> getPagination(UserRequest userRequest) {
-        return helloPaginationService.proceed(userRequest);
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(cognitoService.loginUser(request));
     }
 }

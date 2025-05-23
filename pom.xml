@@ -45,6 +45,7 @@
         <org.hibernate.orm.version>6.6.13.Final</org.hibernate.orm.version>
         <postgres.version>42.7.3</postgres.version>
         <openfeign.version>4.2.0</openfeign.version>
+        <cognito.version>2.31.47</cognito.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -230,6 +231,12 @@
                 <artifactId>mapstruct-processor</artifactId>
                 <version>${mapstruct.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>cognitoidentityprovider</artifactId>
+                <version>${cognito.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
