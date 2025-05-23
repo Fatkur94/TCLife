@@ -26,7 +26,17 @@ public class IntegrationServiceImpl implements IntegrationService{
     @Override
     public String saveENPolicyMasterTable() {
         List<MasterTable> masterTables  = dataAPI.saveENMasterStatus();
-        return "";
+        return masterTables.toString();
+    }
+
+    @Override
+    public List<MasterTable> saveVNPolicyMasterTable() {
+        return dataAPI.saveENMasterStatus();
+    }
+
+    @Override
+    public List<MasterTable> saveENOccupationMasterTable() {
+        return dataAPI.saveENOccupation();
     }
 
     @Override

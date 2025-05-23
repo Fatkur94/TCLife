@@ -23,9 +23,17 @@ public class IntegrationController {
 
     @PostMapping("/savePolicyProposalStatusEng")
     public String saveENMasterTablePolicyProposalStatus() {
-        String returnedStatus = integrationService.saveENPolicyMasterTable();
+        return ("Saved: ").concat(integrationService.saveENPolicyMasterTable());
+    }
 
-        return "Saved: ";
+    @PostMapping("/savePolicyProposalStatusVN")
+    public String saveVNMasterTablePolicyProposalStatus() {
+        return ("Saved: ").concat(integrationService.saveVNPolicyMasterTable().toString());
+    }
+
+    @PostMapping("/saveOccupationEN")
+    public String saveENMasterTableOccupation() {
+        return ("Saved: ").concat(integrationService.saveENOccupationMasterTable().toString());
     }
 
     @GetMapping(value = "/rawList")
