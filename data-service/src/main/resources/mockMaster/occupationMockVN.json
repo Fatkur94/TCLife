@@ -1,0 +1,75 @@
+{
+  "BusinessCodeTable": {
+    "@pk": 507073966,
+    "CodeField": "occupation",
+    "CodeTableId": 507073966,
+    "CodeTableType": -1,
+    "ConditionFields": [
+      "occupation"
+    ],
+    "DescField": "statusDesc",
+    "Description": "Code table of occupation",
+    "EsCodeTableFlag": "N",
+    "GroupId": 513284321,
+    "IdField": "occupation",
+    "IsSmall": "Y",
+    "Name": "TOccupation",
+    "NeedCache": "Y",
+    "NeedMultipleLanguage": "Y",
+    "RecordUsage": 3,
+    "ServiceName": "dd",
+    "SortType": "ASC"
+  },
+  "BusinessCodeTableValueList": [
+    {
+      "Code": "SURV",
+      "ConditionFields": [
+        {
+          "occupation": "SURV"
+        }
+      ],
+      "Description": "Surveyor",
+      "Id": "SURV"
+    },
+    {
+      "Code": "MILP",
+      "ConditionFields": [
+        {
+          "occupation": "MILP"
+        }
+      ],
+      "Description": "Military Personnel",
+      "Id": "MILP"
+    },
+    {
+      "Code": "HUSK",
+      "ConditionFields": [
+        {
+          "occupation": "HUSK"
+        }
+      ],
+      "Description": "Harvester",
+      "Id": "HUSK"
+    },
+    {
+      "Code": "PHAR",
+      "ConditionFields": [
+        {
+          "occupation": "PHAR"
+        }
+      ],
+      "Description": "Pharmacist",
+      "Id": "PHAR"
+    },
+    {
+      "Code": "ACCT",
+      "ConditionFields": [
+        {
+          "occupation": "ACCT"
+        }
+      ],
+      "Description": "Accountant",
+      "Id": "ACCT"
+    }
+  ]
+}

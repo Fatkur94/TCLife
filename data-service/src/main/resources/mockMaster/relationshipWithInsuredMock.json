@@ -1,0 +1,75 @@
+{
+  "BusinessCodeTable": {
+    "@pk": 507073966,
+    "CodeField": "occupation",
+    "CodeTableId": 507073966,
+    "CodeTableType": -1,
+    "ConditionFields": [
+      "occupation"
+    ],
+    "DescField": "statusDesc",
+    "Description": "Code table of occupation",
+    "EsCodeTableFlag": "N",
+    "GroupId": 513284321,
+    "IdField": "occupation",
+    "IsSmall": "Y",
+    "Name": "TOccupation",
+    "NeedCache": "Y",
+    "NeedMultipleLanguage": "Y",
+    "RecordUsage": 3,
+    "ServiceName": "dd",
+    "SortType": "ASC"
+  },
+  "BusinessCodeTableValueList": [
+    {
+      "Code": 0,
+      "ConditionFields": [
+        {
+          "occupation": "0"
+        }
+      ],
+      "Description": "Self",
+      "Id": 0
+    },
+    {
+      "Code": 1,
+      "ConditionFields": [
+        {
+          "occupation": "1"
+        }
+      ],
+      "Description": "Daughter",
+      "Id": 1
+    },
+    {
+      "Code": 2,
+      "ConditionFields": [
+        {
+          "occupation": "2"
+        }
+      ],
+      "Description": "Father",
+      "Id": 2
+    },
+    {
+      "Code": 3,
+      "ConditionFields": [
+        {
+          "occupation": "3"
+        }
+      ],
+      "Description": "Husband",
+      "Id": 3
+    },
+    {
+      "Code": 4,
+      "ConditionFields": [
+        {
+          "occupation": "4"
+        }
+      ],
+      "Description": "Mother",
+      "Id": 4
+    }
+  ]
+}

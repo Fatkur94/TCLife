@@ -1,0 +1,75 @@
+{
+  "BusinessCodeTable": {
+    "@pk": 507073966,
+    "CodeField": "marriage",
+    "CodeTableId": 507073966,
+    "CodeTableType": -1,
+    "ConditionFields": [
+      "marriage"
+    ],
+    "DescField": "statusDesc",
+    "Description": "Code table of marriage",
+    "EsCodeTableFlag": "N",
+    "GroupId": 513284321,
+    "IdField": "marriage",
+    "IsSmall": "Y",
+    "Name": "TMarriage",
+    "NeedCache": "Y",
+    "NeedMultipleLanguage": "Y",
+    "RecordUsage": 3,
+    "ServiceName": "dd",
+    "SortType": "ASC"
+  },
+  "BusinessCodeTableValueList": [
+    {
+      "Code": 1,
+      "ConditionFields": [
+        {
+          "marriage": "1"
+        }
+      ],
+      "Description": "Married",
+      "Id": 1
+    },
+    {
+      "Code": 2,
+      "ConditionFields": [
+        {
+          "marriage": "2"
+        }
+      ],
+      "Description": "Single",
+      "Id": 2
+    },
+    {
+      "Code": 3,
+      "ConditionFields": [
+        {
+          "marriage": "3"
+        }
+      ],
+      "Description": "Divorced",
+      "Id": 3
+    },
+    {
+      "Code": 4,
+      "ConditionFields": [
+        {
+          "marriage": "4"
+        }
+      ],
+      "Description": "Widowed",
+      "Id": 4
+    },
+    {
+      "Code": 5,
+      "ConditionFields": [
+        {
+          "marriage": "5"
+        }
+      ],
+      "Description": "Separated",
+      "Id": 5
+    }
+  ]
+}
