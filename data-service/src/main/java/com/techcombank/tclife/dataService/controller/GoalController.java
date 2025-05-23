@@ -1,26 +1,22 @@
 package com.techcombank.tclife.dataService.controller;
 
-import com.techcombank.tclife.dataService.model.entity.Goal;
-import com.techcombank.tclife.dataService.service.GoalService;
+import com.techcombank.tclife.dataService.model.GoalSummary;
+import com.techcombank.tclife.dataService.service.GoalDataService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/data/goals")
 @AllArgsConstructor
-public class GoalController implements GoalAPI {
+public class GoalController implements GoalDataAPI {
 
-    private final GoalService goalService;
+    private final GoalDataService goalService;
 
     @Override
-    public List<Goal> getGoals() {
-        return List.of(
-                new Goal(UUID.randomUUID(), "Education", "Education funding", "https://example.com/image.jpg", true, null),
-                new Goal(UUID.randomUUID(), "Retirement", "Plan your retirement", "https://example.com/image2.jpg", true, null)
-        );
+    public List<GoalSummary> getActiveGoalSummaryList() {
+        return goalService.getActiveGoalsForSelection();
     }
 }

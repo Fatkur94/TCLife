@@ -3,7 +3,6 @@ package com.techcombank.tclife.dataService.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techcombank.tclife.dataService.model.dto.BusinessTblValue;
 import com.techcombank.tclife.dataService.model.dto.MTPayload;
-import com.techcombank.tclife.dataService.model.dto.Request.MasterRawRequest;
 import com.techcombank.tclife.dataService.model.entity.MasterTable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

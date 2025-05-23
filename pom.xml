@@ -35,7 +35,7 @@
         <jakarta.validation.version>3.1.0</jakarta.validation.version>
         <modelmapper.version>3.2.0</modelmapper.version>
         <lombok.version>1.18.34</lombok.version>
-        <mapstruct.version>1.6.2</mapstruct.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
         <springdoc.version>2.6.0</springdoc.version>
         <org.slf4j.version>2.0.17</org.slf4j.version>
         <aspectj.version>1.9.22</aspectj.version>
@@ -45,6 +45,7 @@
         <postgres.version>42.7.3</postgres.version>
         <openfeign.version>4.2.0</openfeign.version>
         <apache.http.version>4.5.14</apache.http.version>
+        <cognito.version>2.31.47</cognito.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -202,7 +203,6 @@
                 <artifactId>hibernate-core</artifactId>
                 <version>${org.hibernate.orm.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
@@ -218,6 +218,22 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${apache.http.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>cognitoidentityprovider</artifactId>
+                <version>${cognito.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

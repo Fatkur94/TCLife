@@ -3,13 +3,13 @@ package com.techcombank.tclife.dataService.controller;
 
 import com.techcombank.tclife.dataService.model.dto.MTPayload;
 import com.techcombank.tclife.dataService.model.dto.Request.MasterRawRequest;
+import com.techcombank.tclife.dataService.model.entity.MasterTable;
 import com.techcombank.tclife.dataService.service.DataService;
 import com.techcombank.tclife.dataService.service.RedisService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
 
 import java.io.IOException;
 import java.util.List;

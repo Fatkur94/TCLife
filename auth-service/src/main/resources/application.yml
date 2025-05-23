@@ -16,3 +16,8 @@ integration:
       base-url: http://localhost:8085/data-service
       get-config:
         url: ${integration.portal.data-service.base-url}/api/v1/config
+aws:
+  cognito:
+    userPoolId: userPoolId
+    clientId: clientId
+    region: region
