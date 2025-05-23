@@ -37,7 +37,6 @@
         <lombok.version>1.18.34</lombok.version>
         <mapstruct.version>1.6.2</mapstruct.version>
         <springdoc.version>2.6.0</springdoc.version>
-        <apache.httpcomponents.version>5.4.1</apache.httpcomponents.version>
         <org.slf4j.version>2.0.17</org.slf4j.version>
         <aspectj.version>1.9.22</aspectj.version>
         <org.apache.tomcat.embed.version>10.1.40</org.apache.tomcat.embed.version>
@@ -45,6 +44,8 @@
         <org.hibernate.orm.version>6.6.13.Final</org.hibernate.orm.version>
         <postgres.version>42.7.3</postgres.version>
         <openfeign.version>4.2.0</openfeign.version>
+        <apache.http.version>4.5.14</apache.http.version>
+        <io.github.openfeign.version>11.10</io.github.openfeign.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -177,11 +178,6 @@
                 <version>${modelmapper.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.httpcomponents.client5</groupId>
-                <artifactId>httpclient5</artifactId>
-                <version>${apache.httpcomponents.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${org.slf4j.version}</version>
@@ -218,6 +214,16 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${openfeign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache.http.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-httpclient</artifactId>
+                <version>${io.github.openfeign.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

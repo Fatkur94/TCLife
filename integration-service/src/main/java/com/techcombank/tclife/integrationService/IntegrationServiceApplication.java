@@ -1,5 +1,6 @@
 package com.techcombank.tclife.integrationService;
 
+import com.techcombank.tclife.common.annotation.EnableCommonConfig;
 import com.techcombank.tclife.common.security.annotation.EnableApiSecurity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 		"com.techcombank.tclife.common.exception",
 		"com.techcombank.tclife.dataService"
 })
+@EnableCommonConfig
 public class IntegrationServiceApplication {
 
 	public static void main(String[] args) {

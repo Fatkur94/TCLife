@@ -5,6 +5,14 @@ spring:
     name: policy-service
   profiles:
     active: dev
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            readTimeout: 10000
+            connectTimeout: 10000
+            loggerLevel: FULL
   redis:
     host: localhost
     port: 6379
@@ -12,9 +20,6 @@ spring:
     database: 0
 integration:
   portal:
-    connectionRequestTimeout: 10000
-    connect-timeout: 10000
-    read-timeout: 10000
     secret-key:
       value: IiK7ofVZTJwFu41Gezo3mlq2RnDDoTTFourIV2hvaiF0AyCnvy6IBzHPc7j5fcCn
     data-service:

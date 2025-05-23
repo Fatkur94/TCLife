@@ -2,24 +2,20 @@ package com.techcombank.tclife.leadService.service;
 
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
-import com.techcombank.tclife.leadService.client.DataServiceClient;
 import com.techcombank.tclife.leadService.client.LeadDataClient;
 import com.techcombank.tclife.leadService.model.request.GetLeadDetailRequest;
 import com.techcombank.tclife.leadService.model.response.GetLeadDetailResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-
 @Service
 @Slf4j
 public class GetLeadDetailService implements BaseService<GetLeadDetailRequest, GetLeadDetailResponse> {
 
-    private final DataServiceClient dataServiceClient;
     private final LeadDataClient leadDataClient;
 
-    public GetLeadDetailService(DataServiceClient dataServiceClient, LeadDataClient leadDataClient) {
-        this.dataServiceClient = dataServiceClient;
+    public GetLeadDetailService(LeadDataClient leadDataClient) {
+
         this.leadDataClient = leadDataClient;
     }
 

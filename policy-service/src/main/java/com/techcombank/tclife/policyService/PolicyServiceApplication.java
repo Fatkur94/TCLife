@@ -1,17 +1,15 @@
 package com.techcombank.tclife.policyService;
 
+import com.techcombank.tclife.common.annotation.EnableCommonConfig;
 import com.techcombank.tclife.common.security.annotation.EnableApiSecurity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableApiSecurity
 @SpringBootApplication
-@ComponentScan(basePackages = {
-		"com.techcombank.tclife.policyService",
-		"com.techcombank.tclife.common.exception",
-		"com.techcombank.tclife.dataService"
-})
+@EnableFeignClients
+@EnableCommonConfig
 public class PolicyServiceApplication {
 
 	public static void main(String[] args) {

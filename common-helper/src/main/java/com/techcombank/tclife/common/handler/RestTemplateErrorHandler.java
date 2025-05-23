@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
-
 @Slf4j
 public class RestTemplateErrorHandler implements ResponseErrorHandler {
 
@@ -34,7 +33,6 @@ public class RestTemplateErrorHandler implements ResponseErrorHandler {
 
     @Override
     public void handleError(URI url, HttpMethod method, ClientHttpResponse clientHttpResponse) throws IOException {
-        log.info("test read timeout ", clientHttpResponse.getStatusCode());
         BufferedReader reader = new BufferedReader(new InputStreamReader(clientHttpResponse.getBody()));
         String responseBody = reader.lines().collect(Collectors.joining(""));
 
