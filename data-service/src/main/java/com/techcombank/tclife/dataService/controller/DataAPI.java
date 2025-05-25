@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.io.IOException;
 import java.util.List;
 
+// TODO: move this into respective feign client impl.
 @FeignClient(name = "data-master", url = "${data-service.url}", path = "/api/data/master")
 public interface DataAPI {
     @GetMapping("/masterRaw")

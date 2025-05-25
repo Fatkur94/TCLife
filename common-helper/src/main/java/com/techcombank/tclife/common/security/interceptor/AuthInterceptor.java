@@ -1,19 +1,17 @@
 package com.techcombank.tclife.common.security.interceptor;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techcombank.tclife.common.security.annotation.ApiMiddleware;
 import com.techcombank.tclife.common.security.model.ApiAccessScope;
 import com.techcombank.tclife.common.security.processor.AuthValidator;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.aspectj.lang.annotation.Aspect;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;

@@ -1,9 +1,8 @@
 package com.techcombank.tclife.common.wrapper;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.base.BaseListResponse;
-
+import com.techcombank.tclife.common.base.BasePaginationResponse;
 import lombok.Data;
 
 @Data

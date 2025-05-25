@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ClientResponseWrapper<T> {
     private boolean success;
+    private String message;
     private T data;
 }

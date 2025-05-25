@@ -2,7 +2,6 @@ package com.techcombank.tclife.leadService.controller;
 
 import com.techcombank.tclife.common.base.BaseListResponse;
 import com.techcombank.tclife.common.base.BasePaginationRequest;
-import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.model.EmptyResponse;
 import com.techcombank.tclife.common.security.annotation.ApiMiddleware;
 import com.techcombank.tclife.common.security.model.ApiAccessScope;

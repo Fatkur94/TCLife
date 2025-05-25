@@ -1,7 +1,5 @@
 package com.techcombank.tclife.userProfileService.model.response;
 
-import com.techcombank.tclife.common.base.BaseRequest;
-
 import com.techcombank.tclife.common.base.BaseResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

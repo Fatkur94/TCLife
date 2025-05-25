@@ -1,6 +1,8 @@
 package com.techcombank.tclife.common.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 

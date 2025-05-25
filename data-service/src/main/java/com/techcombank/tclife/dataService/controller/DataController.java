@@ -17,10 +17,11 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Validated
-public class DataController implements  DataAPI{
+public class DataController implements DataAPI {
 
     private final DataService dataService;
     private final RedisService redisService;
+
     @Override
     public MTPayload getMasterRaw(@RequestBody MasterRawRequest request) throws IOException {
         return dataService.retrieveMasterTable(request.getLanguage(), request.getTableCd());
@@ -33,6 +34,7 @@ public class DataController implements  DataAPI{
 
     @Override
     public List<MasterTable> getENStatusPayload() {
-        return (List<MasterTable>) redisService.getData("payloadStatusENG");
+        //return (List<MasterTable>) redisService.getData("payloadStatusENG", );
+        return null;
     }
 }

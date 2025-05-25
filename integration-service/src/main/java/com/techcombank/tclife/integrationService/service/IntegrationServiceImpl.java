@@ -5,12 +5,9 @@ import com.techcombank.tclife.dataService.model.dto.BusinessTblValue;
 import com.techcombank.tclife.dataService.model.dto.MTPayload;
 import com.techcombank.tclife.dataService.model.dto.Request.MasterRawRequest;
 import com.techcombank.tclife.dataService.model.entity.MasterTable;
-import com.techcombank.tclife.dataService.service.DataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;

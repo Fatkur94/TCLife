@@ -2,12 +2,15 @@ package com.techcombank.tclife.dataService.repository;
 
 import com.techcombank.tclife.dataService.model.GoalSummary;
 import com.techcombank.tclife.dataService.model.entity.Goal;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.UUID;
 
+@Repository
 public interface GoalRepository extends JpaRepository<Goal, UUID> {
 
     @Query("""
@@ -15,7 +18,7 @@ public interface GoalRepository extends JpaRepository<Goal, UUID> {
         FROM Goal g
         WHERE g.isActive = true
     """)
-    List<GoalSummary> findAllActiveGoalsAsSummary();
+    Page<GoalSummary> findAllActiveGoalsAsSummary(Pageable pageable);
 
 
 }

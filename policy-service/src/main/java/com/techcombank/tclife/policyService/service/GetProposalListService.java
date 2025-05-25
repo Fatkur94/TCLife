@@ -3,12 +3,10 @@ package com.techcombank.tclife.policyService.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
-import com.techcombank.tclife.common.exception.TechnicalException;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.dataService.controller.DataAPI;
 import com.techcombank.tclife.dataService.model.entity.MasterTable;
-import com.techcombank.tclife.policyService.constant.PolicyErrorType;
 import com.techcombank.tclife.policyService.model.entity.ProposalPolicyData;
 import com.techcombank.tclife.policyService.model.entity.ProposalPolicyPayload;
 import com.techcombank.tclife.policyService.model.response.ProposalResponse;
@@ -24,8 +22,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 @Service

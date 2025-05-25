@@ -11,7 +11,6 @@ import com.techcombank.tclife.dataService.model.entity.MasterTable;
 import com.techcombank.tclife.policyService.constant.PolicyErrorType;
 import com.techcombank.tclife.policyService.model.entity.ProposalPolicyData;
 import com.techcombank.tclife.policyService.model.entity.ProposalPolicyPayload;
-import com.techcombank.tclife.policyService.model.response.PolicyProposalStatusResponse;
 import com.techcombank.tclife.policyService.model.response.PolicyResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,11 +21,9 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 

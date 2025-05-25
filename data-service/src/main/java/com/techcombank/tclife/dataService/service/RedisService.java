@@ -1,28 +1,19 @@
 package com.techcombank.tclife.dataService.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Service;
+import java.time.Duration;
 
-@Service
-public class RedisService {
+public interface RedisService {
 
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    void saveData(String key, Object value, Duration ttl);
 
-    public void saveData(String key, Object value) {
-        redisTemplate.opsForValue().set(key, value);
-    }
+    void saveData(String key, Object value);
 
-    public Object getData(String key) {
-        return redisTemplate.opsForValue().get(key);
-    }
+    <T> T getData(String key, Class<T> clazz);
 
-    public void deleteData(String key) {
-        redisTemplate.delete(key);
-    }
+    boolean exists(String key);
 
-    public void saveOrUpdateObject(String key, Object value) {
-        redisTemplate.opsForValue().set(key, value);
-    }
+    void deleteData(String key);
+
+    void saveOrUpdate(String key, Object value, Duration ttl);
 }
+

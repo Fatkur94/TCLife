@@ -1,7 +1,6 @@
 package com.techcombank.tclife.common.exception;
 
 import org.springframework.http.HttpStatus;
-import java.util.Map;
 
 public interface ErrorDefinition {
     HttpStatus getHttpStatus();
