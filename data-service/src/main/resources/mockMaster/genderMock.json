@@ -1,0 +1,55 @@
+{
+  "BusinessCodeTable": {
+    "@pk": 507073966,
+    "CodeField": "gender",
+    "CodeTableId": 507073966,
+    "CodeTableType": -1,
+    "ConditionFields": [
+      "gender"
+    ],
+    "DescField": "statusDesc",
+    "Description": "Code table of gender",
+    "EsCodeTableFlag": "N",
+    "GroupId": 513284321,
+    "IdField": "gender",
+    "IsSmall": "Y",
+    "Name": "TGender",
+    "NeedCache": "Y",
+    "NeedMultipleLanguage": "Y",
+    "RecordUsage": 3,
+    "ServiceName": "dd",
+    "SortType": "ASC"
+  },
+  "BusinessCodeTableValueList": [
+    {
+      "Code": "F",
+      "ConditionFields": [
+        {
+          "proposalStatus": "F"
+        }
+      ],
+      "Description": "Female",
+      "Id": "F"
+    },
+    {
+      "Code": "M",
+      "ConditionFields": [
+        {
+          "proposalStatus": "M"
+        }
+      ],
+      "Description": "Male",
+      "Id": "M"
+    },
+    {
+      "Code": "N",
+      "ConditionFields": [
+        {
+          "proposalStatus": "N"
+        }
+      ],
+      "Description": "Unknown",
+      "Id": "N"
+    }
+  ]
+}

@@ -34,6 +34,30 @@ public class DataServiceImpl implements DataService{
                 default ->
                         "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMock.json";
             };
+        }else if(tableCd.equals("TMarriage")){
+            if(language.equals("vn_VN")){
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\marriageMockVN.json";
+            }else{
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\marriageMock.json";
+            }
+        }else if(tableCd.equals("TGender")){
+            if(language.equals("vn_VN")){
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\genderMockVN.json";
+            }else{
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\genderMock.json";
+            }
+        }else if(tableCd.equals("TOccupation")){
+            if(language.equals("vn_VN")){
+                resource ="C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\occupationMockVN.json";
+            }else{
+                resource ="C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\occupationMock.json";
+            }
+        }else if(tableCd.equals("TRelationshipToMainInsured")){
+            if(language.equals("vn_VN")){
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\relationshipWithInsuredMockVN.json";
+            }else{
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\relationshipWithInsuredMock.json";
+            }
         }
         //later change to response from external
         ObjectMapper objectMapper = new ObjectMapper();
@@ -70,8 +94,6 @@ public class DataServiceImpl implements DataService{
         String resource = null;
         if(tableCd.equals("TProposalStatus")) {
             resource = switch (language) {
-                case "en_US" ->
-                        "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMock.json";
                 case "th_TH" ->
                         "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMockTH.json";
                 case "zh_CN" ->
@@ -81,6 +103,30 @@ public class DataServiceImpl implements DataService{
                 default ->
                         "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\policyStatusMock.json";
             };
+        }else if(tableCd.equals("TMarriage")){
+            if(language.equals("vn_VN")){
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\marriageMockVN.json";
+            }else{
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\marriageMock.json";
+            }
+        }else if(tableCd.equals("TGender")){
+            if(language.equals("vn_VN")){
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\genderMockVN.json";
+            }else{
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\genderMock.json";
+            }
+        }else if(tableCd.equals("TOccupation")){
+            if(language.equals("vn_VN")){
+                resource ="C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\occupationMockVN.json";
+            }else{
+                resource ="C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\occupationMock.json";
+            }
+        }else if(tableCd.equals("TRelationshipToMainInsured")){
+            if(language.equals("vn_VN")){
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\relationshipWithInsuredMockVN.json";
+            }else{
+                resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\data-service\\src\\main\\resources\\mockMaster\\relationshipWithInsuredMock.json";
+            }
         }
         //later change to response from external
         ObjectMapper objectMapper = new ObjectMapper();
@@ -106,6 +152,30 @@ public class DataServiceImpl implements DataService{
                 case "zh_CN" -> redisService.saveData("payloadStatusCN", masterTableList);
                 case "zh_TW" -> redisService.saveData("payloadStatusTW", masterTableList);
                 default -> redisService.saveData("payloadStatus", masterTableList);
+            };
+        }else if(tableCd.equals("TMarriage")) {
+            switch (language) {
+                case "en_US" -> redisService.saveData("marriageENG", masterTableList);
+                case "vn_VH" -> redisService.saveData("marriageVN", masterTableList);
+                default -> redisService.saveData("marriage", masterTableList);
+            };
+        }else if(tableCd.equals("TGender")) {
+            switch (language) {
+                case "en_US" -> redisService.saveData("genderENG", masterTableList);
+                case "vn_VH" -> redisService.saveData("genderVN", masterTableList);
+                default -> redisService.saveData("gender", masterTableList);
+            };
+        }else if(tableCd.equals("TOccupation")) {
+            switch (language) {
+                case "en_US" -> redisService.saveData("occupationENG", masterTableList);
+                case "vn_VH" -> redisService.saveData("occupationVN", masterTableList);
+                default -> redisService.saveData("occupation", masterTableList);
+            };
+        }else if(tableCd.equals("TRelationshipToMainInsured")) {
+            switch (language) {
+                case "en_US" -> redisService.saveData("relationToInsuredENG", masterTableList);
+                case "vn_VH" -> redisService.saveData("relationToInsuredVN", masterTableList);
+                default -> redisService.saveData("relationToInsured", masterTableList);
             };
         }
 
