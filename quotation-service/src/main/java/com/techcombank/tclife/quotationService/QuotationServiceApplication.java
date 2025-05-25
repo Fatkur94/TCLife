@@ -13,8 +13,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 				DataSourceAutoConfiguration.class
 		}
 )
-@EnableFeignClients(basePackages = "com.techcombank.tclife.dataService.controller")
 @EnableCommonConfig
+@EnableFeignClients
 public class QuotationServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(QuotationServiceApplication.class, args);

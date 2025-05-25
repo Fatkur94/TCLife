@@ -81,12 +81,14 @@ public class DataController implements DataAPI{
 
     @Override
     public List<MasterTable> getENStatusPayload() {
-        return (List<MasterTable>) redisService.getData("payloadStatusENG");
+        // return redisService.getData("payloadStatusENG", MasterTable.class);
+        return null;
     }
 
     @Override
     @GetMapping("/en_US/retrieveOccupation")
     public List<MasterTable> getENOccupationList() {
-        return (List<MasterTable>) redisService.getData("occupationENG");
+        //return (List<MasterTable>) redisService.getData("occupationENG");
+        return null;
     }
 }

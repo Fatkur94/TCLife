@@ -14,7 +14,7 @@ public class FeatureConfigDataServiceImpl implements FeatureConfigDataService {
 
     @Override
     public FeatureConfig getFeatureConfigByFeatureNameScope(String featureName, String scope) {
-        return featureConfigRepository.findByFeatureKeyAndScopeAndIsEnabledTrue(featureName, scope)
+        return featureConfigRepository.findByFeatureNameAndScopeAndIsEnabledTrue(featureName, scope)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "FeatureConfig not found for feature: " + featureName + " and scope: " + scope));
     }

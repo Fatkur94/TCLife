@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.UUID;
 
-@FeignClient(name = "data-service", url = "${integration.portal.data-service.base-url}")
+@FeignClient(
+        name = "data-service",
+        url = "${integration.portal.data-service.base-url}",
+        path = "/api/v1/data/access-role"
+)
 public interface UserDataClient {
-
-    @GetMapping("/api/v1/data/access-role/get-user-by-cognito-sub")
+    @GetMapping("/get-user-by-cognito-sub")
     ClientResponseWrapper<UserAccessDTO> getUserByCognitoSub(UUID sub);
 }

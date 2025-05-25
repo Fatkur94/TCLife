@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface FeatureConfigRepository extends JpaRepository<FeatureConfig, Long> {
-    Optional<FeatureConfig> findByFeatureKeyAndScopeAndIsEnabledTrue(String featureKey, String scope);
+    Optional<FeatureConfig> findByFeatureNameAndScopeAndIsEnabledTrue(String featureName, String scope);
 }

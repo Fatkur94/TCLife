@@ -5,6 +5,11 @@ spring:
     name: auth-service
   profiles:
     active: dev
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://cognito-idp.<region>.amazonaws.com/<user-pool-id>
 integration:
   portal:
     connectionRequestTimeout: 10000
@@ -21,3 +26,4 @@ aws:
     userPoolId: userPoolId
     clientId: clientId
     region: region
+
