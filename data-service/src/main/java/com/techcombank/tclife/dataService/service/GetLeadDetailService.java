@@ -2,10 +2,10 @@ package com.techcombank.tclife.dataService.service;
 
 import com.techcombank.tclife.common.context.PortalContext;
 import com.techcombank.tclife.common.exception.BusinessException;
+import com.techcombank.tclife.common.model.dto.GetLeadDetailResponse;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.dataService.model.request.GetLeadDetailRequest;
-import com.techcombank.tclife.dataService.model.response.GetLeadDetailResponse;
 import com.techcombank.tclife.dataService.repository.LeadRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

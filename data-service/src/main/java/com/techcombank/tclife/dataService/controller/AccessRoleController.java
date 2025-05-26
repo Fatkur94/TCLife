@@ -26,11 +26,11 @@ public class AccessRoleController {
     ) {
         try {
             UserAccessDTO dto = accessRoleService.getUserAccessByCognitoSub(sub);
-            return ResponseEntity.ok(new ClientResponseWrapper<>(true, "Success", dto));
+            return ResponseEntity.ok(new ClientResponseWrapper<>(true, "Success", dto, null));
         } catch (Exception ex) {
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
-                    .body(new ClientResponseWrapper<>(false, ex.getMessage(), null));
+                    .body(new ClientResponseWrapper<>(false, ex.getMessage(), null, null));
         }
     }
 }

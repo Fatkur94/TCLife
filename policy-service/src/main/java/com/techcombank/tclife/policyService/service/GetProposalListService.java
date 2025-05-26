@@ -9,7 +9,6 @@ import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.policyService.client.ProposalPolicyDataService;
 import com.techcombank.tclife.policyService.client.ProposalPolicyIntegrationClient;
-
 import com.techcombank.tclife.policyService.model.response.ProposalResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

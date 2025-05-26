@@ -8,6 +8,6 @@ public interface BaseService<T extends BaseRequest, V extends BaseResponse> {
     ResponseWrapper<V> proceed(T input);
 
     default <T> ResponseWrapper<T> successResponse(T data) {
-        return new ResponseWrapper<>(true, data);
+        return new ResponseWrapper<>(true, data, null); // TODO : adjust this as needed.
     }
 }

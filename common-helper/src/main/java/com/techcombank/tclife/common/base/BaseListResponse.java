@@ -12,4 +12,8 @@ public class BaseListResponse<T> extends BaseResponse {
     public List<T> getData() {
         return data;
     }
+
+    public void setData(List<T> data) {
+        this.data = data;
+    }
 }
