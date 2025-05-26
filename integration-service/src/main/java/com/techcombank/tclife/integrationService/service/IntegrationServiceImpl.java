@@ -1,12 +1,11 @@
 package com.techcombank.tclife.integrationService.service;
 
-import com.techcombank.tclife.dataService.controller.DataAPI;
-import com.techcombank.tclife.dataService.model.dto.BusinessTblValue;
-import com.techcombank.tclife.dataService.model.dto.MTPayload;
-import com.techcombank.tclife.dataService.model.dto.Request.MasterRawRequest;
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
+import com.techcombank.tclife.common.model.dto.data.BusinessTblValue;
+import com.techcombank.tclife.common.model.dto.data.MTPayload;
+import com.techcombank.tclife.common.model.dto.data.MasterRawRequest;
+import com.techcombank.tclife.common.model.dto.data.MasterTable;
+import com.techcombank.tclife.integrationService.client.ProposalPolicyDataClient;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -17,30 +16,28 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class IntegrationServiceImpl implements IntegrationService{
-    @Autowired
-    private final DataAPI dataAPI;
-
+    private final ProposalPolicyDataClient proposalPolicyDataClient;
     @Override
     public String saveENPolicyMasterTable() {
-        List<MasterTable> masterTables  = dataAPI.saveENMasterStatus();
+        List<MasterTable> masterTables  = proposalPolicyDataClient.saveENMasterStatus();
         return masterTables.toString();
     }
 
     @Override
     public List<MasterTable> saveVNPolicyMasterTable() {
-        return dataAPI.saveENMasterStatus();
+        return proposalPolicyDataClient.saveENMasterStatus();
     }
 
     @Override
     public List<MasterTable> saveENOccupationMasterTable() {
-        return dataAPI.saveENOccupation();
+        return proposalPolicyDataClient.saveENOccupation();
     }
 
     @Override
     public List<MasterTable> retrieveMasterTable(String tableCode, String language) {
         List<MasterTable> masterTableList = new ArrayList<>();
         try {
-            MTPayload masterRaw = dataAPI.getMasterRaw(new MasterRawRequest(tableCode,language));
+            MTPayload masterRaw = proposalPolicyDataClient.getMasterRaw(new MasterRawRequest(tableCode,language));
             List<BusinessTblValue> valueCode = masterRaw.getBusinessCodeTableValueListList();
 
             for(BusinessTblValue descValue : valueCode){

@@ -60,10 +60,6 @@
 			<artifactId>common-helper</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.techcombank.tclife</groupId>
-			<artifactId>data-service</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-common</artifactId>
 			<version>4.1.121.Final</version>

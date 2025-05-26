@@ -1,6 +1,6 @@
 package com.techcombank.tclife.integrationService.service;
 
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
+import com.techcombank.tclife.common.model.dto.data.MasterTable;
 
 import java.util.List;
 

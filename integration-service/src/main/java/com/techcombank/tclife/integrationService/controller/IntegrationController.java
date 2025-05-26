@@ -1,6 +1,6 @@
 package com.techcombank.tclife.integrationService.controller;
 
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
+import com.techcombank.tclife.common.model.dto.data.MasterTable;
 import com.techcombank.tclife.integrationService.request.MasterTableRequest;
 import com.techcombank.tclife.integrationService.service.IntegrationService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -39,5 +39,6 @@ public class IntegrationController {
     public List<MasterTable> getPolicyProposalStatus(@RequestBody MasterTableRequest requestDTO) throws IOException {
         return integrationService.retrieveMasterTable(requestDTO.getTableCd(), requestDTO.getLanguage());
     }
+
 
 }
