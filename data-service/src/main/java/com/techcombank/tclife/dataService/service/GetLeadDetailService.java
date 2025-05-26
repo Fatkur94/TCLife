@@ -1,5 +1,6 @@
 package com.techcombank.tclife.dataService.service;
 
+import com.techcombank.tclife.common.context.PortalContext;
 import com.techcombank.tclife.common.exception.BusinessException;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
@@ -15,9 +16,11 @@ import org.springframework.stereotype.Service;
 public class GetLeadDetailService implements BaseService<GetLeadDetailRequest, GetLeadDetailResponse> {
 
     private LeadRepository leadRepository;
+    private final PortalContext portalContext;
 
-    public GetLeadDetailService(LeadRepository leadRepository) {
+    public GetLeadDetailService(LeadRepository leadRepository, PortalContext portalContext) {
         this.leadRepository = leadRepository;
+        this.portalContext = portalContext;
     }
 
     @Override

@@ -48,6 +48,7 @@
         <cognito.version>2.31.47</cognito.version>
         <oauth2-resource-server.version>3.4.5</oauth2-resource-server.version>
         <sp-boot-starter-security.version>3.4.5</sp-boot-starter-security.version>
+        <commons.lang3.version>3.14.0</commons.lang3.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -248,6 +249,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
                 <version>${sp-boot-starter-security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

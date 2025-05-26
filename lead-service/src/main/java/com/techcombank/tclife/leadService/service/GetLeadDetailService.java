@@ -1,5 +1,6 @@
 package com.techcombank.tclife.leadService.service;
 
+import com.techcombank.tclife.common.context.PortalContext;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.leadService.client.LeadDataClient;
@@ -13,9 +14,7 @@ import org.springframework.stereotype.Service;
 public class GetLeadDetailService implements BaseService<GetLeadDetailRequest, GetLeadDetailResponse> {
 
     private final LeadDataClient leadDataClient;
-
     public GetLeadDetailService(LeadDataClient leadDataClient) {
-
         this.leadDataClient = leadDataClient;
     }
 
