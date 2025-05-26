@@ -9,10 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableApiSecurity
 @SpringBootApplication
-@ComponentScan(basePackages = {
-		"com.techcombank.tclife.integrationService",
-		"com.techcombank.tclife.common.exception"
-})
 @EnableCommonConfig
 @EnableFeignClients
 public class IntegrationServiceApplication {
