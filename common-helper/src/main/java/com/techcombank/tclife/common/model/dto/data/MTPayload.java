@@ -1,4 +1,4 @@
-package com.techcombank.tclife.dataService.model.dto;
+package com.techcombank.tclife.common.model.dto.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

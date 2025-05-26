@@ -1,4 +1,5 @@
-package com.techcombank.tclife.policyService.model.entity;
+package com.techcombank.tclife.common.model.dto.policy;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
