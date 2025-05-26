@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.io.IOException;
 import java.util.List;
 
-@FeignClient(name = "data-service", url = "${data-service.url}", path = "/api/data/master")
+@FeignClient(name = "data-service", url = "${data-service.url}", path = "/api/v1/data_master")
 public interface DataAPI {
     @GetMapping("/masterRaw")
     public MTPayload getMasterRaw(@RequestBody MasterRawRequest request) throws IOException;

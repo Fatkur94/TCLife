@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Validated
-@RequestMapping("/test")
+@RequestMapping("/api/v1/data_master")
 public class DataController implements DataAPI{
 
     private final DataService dataService;
@@ -80,14 +80,15 @@ public class DataController implements DataAPI{
     }
 
     @Override
+    @GetMapping("/en_US/retrieveStatusPayload")
     public List<MasterTable> getENStatusPayload() {
-        return (List<MasterTable>)redisService.getData("payloadStatusENG", MasterTable.class);
+        return (List<MasterTable>)redisService.getObjectByKey("payloadStatusENG");
     }
 
     @Override
     @GetMapping("/en_US/retrieveOccupation")
     public List<MasterTable> getENOccupationList() {
-        return (List<MasterTable>) redisService.getData("occupationENG", MasterTable.class);
+        return (List<MasterTable>) redisService.getObjectByKey("occupationENG");
 
     }
 }

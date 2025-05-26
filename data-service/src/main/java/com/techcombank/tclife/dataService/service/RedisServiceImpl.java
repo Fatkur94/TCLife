@@ -1,4 +1,4 @@
-package com.techcombank.tclife.dataService.service.impl;
+package com.techcombank.tclife.dataService.service;
 
 import com.techcombank.tclife.dataService.service.RedisService;
 import lombok.RequiredArgsConstructor;
@@ -46,5 +46,9 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public void saveOrUpdate(String key, Object value, Duration ttl) {
         redisTemplate.opsForValue().set(key, value, ttl);
+    }
+
+    public Object getObjectByKey(String key) {
+        return redisTemplate.opsForValue().get(key);
     }
 }

@@ -28,6 +28,6 @@ integration:
     secret-key:
       value: IiK7ofVZTJwFu41Gezo3mlq2RnDDoTTFourIV2hvaiF0AyCnvy6IBzHPc7j5fcCn
     data-service:
-      base-url: http://localhost:8085/data-service
+      base-url: http://localhost:8085/api/v1/data_master
       get-config:
         url: ${integration.portal.data-service.base-url}/api/v1/config

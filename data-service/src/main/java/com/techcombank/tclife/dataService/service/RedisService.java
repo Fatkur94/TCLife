@@ -15,5 +15,7 @@ public interface RedisService {
     void deleteData(String key);
 
     void saveOrUpdate(String key, Object value, Duration ttl);
+
+    Object getObjectByKey(String key);
 }
 
