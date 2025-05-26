@@ -1,5 +1,4 @@
-package com.techcombank.tclife.dataService.controller;
-
+package com.techcombank.tclife.integrationService.client;
 import com.techcombank.tclife.common.model.dto.data.MTPayload;
 import com.techcombank.tclife.common.model.dto.data.MasterRawRequest;
 import com.techcombank.tclife.common.model.dto.data.MasterTable;
@@ -10,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.IOException;
 import java.util.List;
-
-@FeignClient(name = "data-service", url = "${data-service.url}", path = "/api/data/master")
-public interface DataAPI {
+@FeignClient(name = "data-service", url = "${integration.portal.data-service.base-url}")
+public interface ProposalPolicyDataClient {
     @GetMapping("/masterRaw")
     public MTPayload getMasterRaw(@RequestBody MasterRawRequest request) throws IOException;
 
@@ -51,5 +49,4 @@ public interface DataAPI {
 
     @GetMapping("/en_US/retrieveOccupation")
     public List<MasterTable> getENOccupationList();
-
 }

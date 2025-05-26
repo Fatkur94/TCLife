@@ -1,9 +1,9 @@
 package com.techcombank.tclife.dataService.controller;
 
 
-import com.techcombank.tclife.dataService.model.dto.MTPayload;
-import com.techcombank.tclife.dataService.model.dto.Request.MasterRawRequest;
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
+import com.techcombank.tclife.common.model.dto.data.MTPayload;
+import com.techcombank.tclife.common.model.dto.data.MasterRawRequest;
+import com.techcombank.tclife.common.model.dto.data.MasterTable;
 import com.techcombank.tclife.dataService.service.DataService;
 import com.techcombank.tclife.dataService.service.RedisService;
 import lombok.RequiredArgsConstructor;
@@ -81,14 +81,13 @@ public class DataController implements DataAPI{
 
     @Override
     public List<MasterTable> getENStatusPayload() {
-        // return redisService.getData("payloadStatusENG", MasterTable.class);
-        return null;
+        return (List<MasterTable>)redisService.getData("payloadStatusENG", MasterTable.class);
     }
 
     @Override
     @GetMapping("/en_US/retrieveOccupation")
     public List<MasterTable> getENOccupationList() {
-        //return (List<MasterTable>) redisService.getData("occupationENG");
-        return null;
+        return (List<MasterTable>) redisService.getData("occupationENG", MasterTable.class);
+
     }
 }

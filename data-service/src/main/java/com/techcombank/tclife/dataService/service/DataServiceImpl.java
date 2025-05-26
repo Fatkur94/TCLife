@@ -1,9 +1,9 @@
 package com.techcombank.tclife.dataService.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.techcombank.tclife.dataService.model.dto.BusinessTblValue;
-import com.techcombank.tclife.dataService.model.dto.MTPayload;
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
+import com.techcombank.tclife.common.model.dto.data.BusinessTblValue;
+import com.techcombank.tclife.common.model.dto.data.MTPayload;
+import com.techcombank.tclife.common.model.dto.data.MasterTable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

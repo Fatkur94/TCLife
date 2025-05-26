@@ -1,7 +1,7 @@
 package com.techcombank.tclife.dataService.service;
 
-import com.techcombank.tclife.dataService.model.dto.MTPayload;
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
+import com.techcombank.tclife.common.model.dto.data.MTPayload;
+import com.techcombank.tclife.common.model.dto.data.MasterTable;
 
 import java.io.IOException;
 import java.util.List;
