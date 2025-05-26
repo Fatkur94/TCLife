@@ -1,7 +1,7 @@
 package com.techcombank.tclife.common.annotation;
 
-
 import com.techcombank.tclife.common.client.GlobalFeignClientConfig;
+import com.techcombank.tclife.common.context.PortalContextConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -15,8 +15,14 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Configuration
 @Import({
-        GlobalFeignClientConfig.class,
+        PortalContextConfig.class,
+        GlobalFeignClientConfig.class
 })
-@ComponentScan(basePackages = "com.techcombank.tclife.common.exception")
+@ComponentScan(basePackages = {
+        "com.techcombank.tclife.common.exception",
+        "com.techcombank.tclife.common.context",
+        "com.techcombank.tclife.common.client"
+
+})
 public @interface EnableCommonConfig{
 }

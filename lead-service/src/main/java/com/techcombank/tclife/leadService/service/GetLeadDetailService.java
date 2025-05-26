@@ -13,9 +13,7 @@ import org.springframework.stereotype.Service;
 public class GetLeadDetailService implements BaseService<GetLeadDetailRequest, GetLeadDetailResponse> {
 
     private final LeadDataClient leadDataClient;
-
     public GetLeadDetailService(LeadDataClient leadDataClient) {
-
         this.leadDataClient = leadDataClient;
     }
 

@@ -21,8 +21,11 @@ public class GlobalFeignClientConfig {
     private Integer readTimeout;
 
     @Bean
-    public RequestInterceptor internalInterceptor() {
-        return requestTemplate -> requestTemplate.header("X-Secret-Key", secretKeyValue);
+    public RequestInterceptor compositeInterceptor(FeignPortalContextInterceptor customInterceptor) {
+        return requestTemplate -> {
+            requestTemplate.header("X-Secret-Key", secretKeyValue);
+            customInterceptor.apply(requestTemplate);
+        };
     }
 
     @Bean
