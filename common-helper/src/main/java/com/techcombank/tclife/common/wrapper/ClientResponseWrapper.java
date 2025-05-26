@@ -15,4 +15,11 @@ public class ClientResponseWrapper<T> {
     private String message;
     private T data;
     private Context context;
+
+    public ClientResponseWrapper(boolean success, String message, T data) {
+        this.success = success;
+        this.message = message;
+        this.data = data;
+        this.context = null;
+    }
 }

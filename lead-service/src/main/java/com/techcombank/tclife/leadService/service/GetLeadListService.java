@@ -21,7 +21,7 @@ public class GetLeadListService implements BaseService<BasePaginationRequest, Ba
     @Override
     public ResponseWrapper<BaseListResponse<GetLeadsResponse>> proceed(BasePaginationRequest input) {
         var responses = leadDataClient.getLeads();
-        BaseListResponse<GetLeadsResponse> responseWrapper = new BaseListResponse<>(responses.getData(), null);
+        BaseListResponse<GetLeadsResponse> responseWrapper = new BaseListResponse<>(responses.getData());
         return successResponse(responseWrapper);
     }
 }

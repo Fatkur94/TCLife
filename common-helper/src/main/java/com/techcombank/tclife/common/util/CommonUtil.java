@@ -13,7 +13,7 @@ public class CommonUtil {
         return UUID.randomUUID().toString();
     }
 
-    public String generateSecureToken(int byteLength) {
+    public static String generateSecureToken(int byteLength) {
         SecureRandom secureRandom = new SecureRandom();
         byte[] token = new byte[byteLength];
         secureRandom.nextBytes(token);

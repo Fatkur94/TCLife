@@ -8,7 +8,6 @@ import com.techcombank.tclife.common.model.dto.policy.ProposalPolicyData;
 import com.techcombank.tclife.common.model.dto.policy.ProposalPolicyPayload;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
-
 import com.techcombank.tclife.policyService.client.ProposalPolicyDataService;
 import com.techcombank.tclife.policyService.client.ProposalPolicyIntegrationClient;
 import com.techcombank.tclife.policyService.constant.PolicyErrorType;

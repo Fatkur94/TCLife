@@ -37,7 +37,7 @@ public class GetLeadsService implements BaseService<EmptyRequest, BaseListRespon
                     return response;
                 })
                 .collect(Collectors.toList());
-        BaseListResponse<GetLeadsResponse> responseWrapper = new BaseListResponse<>(leadsResponses, null); // TODO : adjust this if needed.
+        BaseListResponse<GetLeadsResponse> responseWrapper = new BaseListResponse<>(leadsResponses);
         return successResponse(responseWrapper);
     }
 }

@@ -38,7 +38,7 @@ public class QuotationServiceImpl implements QuotationService {
 
         if (isGoalListFromInsureMoEnabled) {
             // TODO: fetch from InsureMo
-            return new BasePaginationResponse<>(List.of(), page, size, 0L, 0);
+            return null;
         }
 
         Page<GoalSummary> goalSummaries = goalDataClient.getActiveGoalSummaryList(page, size);
@@ -47,9 +47,7 @@ public class QuotationServiceImpl implements QuotationService {
                 .toList();
 
         return new BasePaginationResponse<>(
-                content,
-                page,
-                size,
+                content, page, size,
                 goalSummaries.getTotalElements(),
                 goalSummaries.getTotalPages()
         );

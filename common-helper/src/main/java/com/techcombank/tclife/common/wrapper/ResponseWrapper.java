@@ -21,14 +21,14 @@ public class ResponseWrapper<T> {
         this.success = success;
         if (data instanceof BasePaginationResponse<?> paginationResponse) {
             this.data = (T) paginationResponse.getData();
-            this.context = paginationResponse.getContext();
+            this.context = context;
             this.page = paginationResponse.getPage();
             this.size = paginationResponse.getSize();
             this.totalItems = paginationResponse.getTotalItems();
             this.totalPages = paginationResponse.getTotalPages();
         } else if (data instanceof BaseListResponse<?> listResponse) {
             this.data = (T) listResponse.getData();
-            this.context = listResponse.getContext();
+            this.context = context;
             this.page = null;
             this.size = null;
             this.totalItems = null;

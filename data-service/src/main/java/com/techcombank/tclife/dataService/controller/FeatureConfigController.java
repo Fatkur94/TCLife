@@ -30,7 +30,7 @@ public class FeatureConfigController {
             if (featureConfig == null) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body(new ClientResponseWrapper<>(false,
-                                "Feature config not found.", null));
+                                "Feature config not found.", null, null));
             }
 
             FeatureConfigResponse featureConfigResponse = FeatureConfigResponse.builder()
@@ -42,11 +42,11 @@ public class FeatureConfigController {
                     .build();
 
             return ResponseEntity.ok(new ClientResponseWrapper<>(true,
-                    "Feature config fetched successfully.", featureConfigResponse));
+                    "Feature config fetched successfully.", featureConfigResponse, null));
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ClientResponseWrapper<>(false,
-                            "Failed to fetch feature config: " + ex.getMessage(), null));
+                            "Failed to fetch feature config: " + ex.getMessage(), null, null));
         }
     }
 }

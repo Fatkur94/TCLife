@@ -7,7 +7,6 @@ import com.techcombank.tclife.common.security.model.ApiAccessScope;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
 import com.techcombank.tclife.policyService.model.request.GetPolicyDetailRequest;
 import com.techcombank.tclife.policyService.model.response.GetPolicyDetailResponse;
-import com.techcombank.tclife.policyService.model.response.PolicyProposalStatusResponse;
 import com.techcombank.tclife.policyService.model.response.PolicyResponse;
 import com.techcombank.tclife.policyService.service.GetPolicyDetailService;
 import com.techcombank.tclife.policyService.service.GetPolicyListService;
@@ -22,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/policy-service/api/v1")
