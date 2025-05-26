@@ -24,4 +24,7 @@ public class GoalController {
     ) {
         return goalService.getActiveGoalsForSelection(PageRequest.of(page, size));
     }
+
+    @GetMapping("/get-goal-by-goal-id")
+    public
 }

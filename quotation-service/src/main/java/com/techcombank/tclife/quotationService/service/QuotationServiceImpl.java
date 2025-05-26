@@ -3,10 +3,12 @@ package com.techcombank.tclife.quotationService.service;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.constant.FeatureConfigConstants;
 import com.techcombank.tclife.common.util.JacksonUtil;
+import com.techcombank.tclife.common.wrapper.ClientResponseWrapper;
 import com.techcombank.tclife.dataService.model.GoalSummary;
 import com.techcombank.tclife.dataService.model.dto.Request.FeatureConfigRequest;
 import com.techcombank.tclife.quotationService.client.FeatureConfigDataClient;
 import com.techcombank.tclife.quotationService.client.GoalDataClient;
+import com.techcombank.tclife.quotationService.client.LeadDataClient;
 import com.techcombank.tclife.quotationService.model.response.GoalListItemResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,9 +22,9 @@ public class QuotationServiceImpl implements QuotationService {
 
     private final GoalDataClient goalDataClient;
     private final FeatureConfigDataClient featureConfigDataClient;
+    private final LeadDataClient leadDataClient;
 
     private static final JacksonUtil jackson = JacksonUtil.createDefault();
-
 
     @Override
     public BasePaginationResponse<GoalListItemResponse> loadGoalSelection(int page, int size) {
@@ -53,6 +55,15 @@ public class QuotationServiceImpl implements QuotationService {
         );
     }
 
+    @Override
+    public ClientResponseWrapper<Void> selectGoal(String goalId) {
+
+        goalDataClient.getGoalByGoalId(goalId);
+
+
+        return null;
+    }
+
     private GoalListItemResponse convertToGoalListItemResponse(GoalSummary goal) {
         return new GoalListItemResponse(
                 goal.getId().toString(),
@@ -61,4 +72,6 @@ public class QuotationServiceImpl implements QuotationService {
                 goal.getImageUrl()
         );
     }
+
+
 }

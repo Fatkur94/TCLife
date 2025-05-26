@@ -1,13 +1,11 @@
-package com.techcombank.tclife.leadService.model.response;
+package com.techcombank.tclife.common.model.dto;
 
 import com.techcombank.tclife.common.base.BaseResponse;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
 @NoArgsConstructor
@@ -21,4 +19,3 @@ public class GetLeadDetailResponse extends BaseResponse {
     private String occupation;
     private String mainInsured;
 }
-
