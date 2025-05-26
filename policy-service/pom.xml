@@ -70,10 +70,6 @@
 			<artifactId>common-helper</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.techcombank.tclife</groupId>
-			<artifactId>data-service</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>

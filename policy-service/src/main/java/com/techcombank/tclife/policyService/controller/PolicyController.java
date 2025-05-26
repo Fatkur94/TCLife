@@ -9,7 +9,6 @@ import com.techcombank.tclife.policyService.model.request.GetPolicyDetailRequest
 import com.techcombank.tclife.policyService.model.response.GetPolicyDetailResponse;
 import com.techcombank.tclife.policyService.model.response.PolicyProposalStatusResponse;
 import com.techcombank.tclife.policyService.model.response.PolicyResponse;
-import com.techcombank.tclife.policyService.service.CommonSharedService;
 import com.techcombank.tclife.policyService.service.GetPolicyDetailService;
 import com.techcombank.tclife.policyService.service.GetPolicyListService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -34,7 +33,6 @@ public class PolicyController {
 
     private final GetPolicyListService getPolicyListService;
     private final GetPolicyDetailService getPolicyDetailService;
-    private final CommonSharedService commonSharedService;
 
     @GetMapping
     public ResponseEntity<String> hello() {
@@ -54,9 +52,5 @@ public class PolicyController {
         return getPolicyDetailService.proceed(GetPolicyDetailRequest.builder().policyNo(policyNo).build());
     }
 
-    @GetMapping(value = "/policies/status")
-    public ResponseWrapper<List<PolicyProposalStatusResponse>>getPolicyProposalStatus() throws IOException {
-        return commonSharedService.getCommonStatusForProposalAndPolicy();
-    }
 
 }

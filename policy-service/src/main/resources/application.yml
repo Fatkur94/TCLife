@@ -26,12 +26,10 @@ integration:
       base-url: http://localhost:8085/data-service
       get-config:
         url: ${integration.portal.data-service.base-url}/api/v1/config
-    data-master:
-      base-url: http://localhost:8085/data-master
+    integration-service:
+      base-url: http://localhost:8086/data-master
       get-config:
-        url: ${integration.portal.data-master-service.base-url}/api/v1/config
-data-master:
-  url: http://localhost:8085
+        url: ${integration.portal.integration-service.base-url}/api/v1/config
 feign:
   client:
     config:

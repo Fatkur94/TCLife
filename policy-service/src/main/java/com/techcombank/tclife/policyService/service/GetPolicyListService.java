@@ -1,16 +1,17 @@
 package com.techcombank.tclife.policyService.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.exception.TechnicalException;
+import com.techcombank.tclife.common.model.dto.data.MasterTable;
+import com.techcombank.tclife.common.model.dto.policy.ProposalPolicyData;
+import com.techcombank.tclife.common.model.dto.policy.ProposalPolicyPayload;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
-import com.techcombank.tclife.dataService.controller.DataAPI;
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
+
+import com.techcombank.tclife.policyService.client.ProposalPolicyDataService;
+import com.techcombank.tclife.policyService.client.ProposalPolicyIntegrationClient;
 import com.techcombank.tclife.policyService.constant.PolicyErrorType;
-import com.techcombank.tclife.policyService.model.entity.ProposalPolicyData;
-import com.techcombank.tclife.policyService.model.entity.ProposalPolicyPayload;
 import com.techcombank.tclife.policyService.model.response.PolicyResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +20,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GetPolicyListService implements BaseService<BasePaginationRequest, BasePaginationResponse<PolicyResponse>> {
 
-    private final CommonSharedService commonSharedService;
-    private final DataAPI dataAPI;
+    private final ProposalPolicyIntegrationClient proposalPolicyIntegrationClient;
+    private final ProposalPolicyDataService proposalPolicyDataService;
 
     @Override
     public ResponseWrapper<BasePaginationResponse<PolicyResponse>> proceed(BasePaginationRequest input) {
@@ -41,17 +40,9 @@ public class GetPolicyListService implements BaseService<BasePaginationRequest, 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
 
-        String resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\payload.json";
-        ObjectMapper objectMapper = new ObjectMapper();
-        ProposalPolicyPayload policy = null;
-        try {
-            policy = objectMapper.readValue(new File(resource), ProposalPolicyPayload.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        ProposalPolicyPayload policy = proposalPolicyIntegrationClient.getPayloadToTransform();
         List<PolicyResponse> policyResponses = new ArrayList<>();
-        List<MasterTable> statusCode = dataAPI.getENStatusPayload();
+        List<MasterTable> statusCode = proposalPolicyDataService.getENStatusPayload();
 
         for(ProposalPolicyData x : policy.getData()){
             PolicyResponse policyJson = new PolicyResponse();

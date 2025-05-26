@@ -1,14 +1,15 @@
 package com.techcombank.tclife.policyService.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techcombank.tclife.common.base.BasePaginationRequest;
 import com.techcombank.tclife.common.base.BasePaginationResponse;
+import com.techcombank.tclife.common.model.dto.data.MasterTable;
+import com.techcombank.tclife.common.model.dto.policy.ProposalPolicyData;
+import com.techcombank.tclife.common.model.dto.policy.ProposalPolicyPayload;
 import com.techcombank.tclife.common.service.BaseService;
 import com.techcombank.tclife.common.wrapper.ResponseWrapper;
-import com.techcombank.tclife.dataService.controller.DataAPI;
-import com.techcombank.tclife.dataService.model.entity.MasterTable;
-import com.techcombank.tclife.policyService.model.entity.ProposalPolicyData;
-import com.techcombank.tclife.policyService.model.entity.ProposalPolicyPayload;
+import com.techcombank.tclife.policyService.client.ProposalPolicyDataService;
+import com.techcombank.tclife.policyService.client.ProposalPolicyIntegrationClient;
+
 import com.techcombank.tclife.policyService.model.response.ProposalResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +18,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,51 +28,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GetProposalListService implements BaseService<BasePaginationRequest, BasePaginationResponse<ProposalResponse>> {
 
-    private final DataAPI dataAPI;
+    private final ProposalPolicyIntegrationClient proposalPolicyIntegrationClient;
+    private final ProposalPolicyDataService proposalPolicyDataService;
 
     @Override
     public ResponseWrapper<BasePaginationResponse<ProposalResponse>> proceed(BasePaginationRequest input) {
         Pageable pageable = input.toPageable();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
-        /*Date dob = null;
-        try {
-            dob = dateFormat.parse("1991-01-01");
-        } catch (ParseException e) {
-            log.error("Cannot Parse dob Date");
-            throw new TechnicalException(PolicyErrorType.PARSE_DATE_ERROR);
-        }
 
-        Date creationDate = null;
-        try {
-            creationDate = dateFormat.parse("1991-01-01");
-        } catch (ParseException e) {
-            log.error("Cannot Parse creation Date");
-            throw new TechnicalException(PolicyErrorType.PARSE_DATE_ERROR);
-        }*/
+        ProposalPolicyPayload proposal = proposalPolicyIntegrationClient.getPayloadToTransform();
+        List<MasterTable> statusCode = proposalPolicyDataService.getENStatusPayload();
 
-        String resource = "C:\\Users\\dsutomo\\apps\\workspace\\TCLife\\policy-service\\src\\main\\resources\\mockJson\\payload.json";
-        ObjectMapper objectMapper = new ObjectMapper();
-        ProposalPolicyPayload proposal = null;
-        try {
-            proposal = objectMapper.readValue(new File(resource), ProposalPolicyPayload.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        /*ProposalResponse proposal = ProposalResponse.builder()
-                .fullName("Jane Smith")
-                .leadId("LID789012")
-                .proposalId("PROP456789")
-                .dob(dob)
-                .creationDate(creationDate)
-                .proposalStatus("Pending")
-                .build();
-*/
         List<ProposalResponse> proposalResponses = new ArrayList<>();
-        List<MasterTable> statusCode = dataAPI.getENStatusPayload();
-
-
         for(ProposalPolicyData x : proposal.getData()){
             ProposalResponse proposalLoop = new ProposalResponse();
             proposalLoop.setProposalId(x.getProposalNo());
