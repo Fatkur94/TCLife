@@ -6,5 +6,5 @@ import com.techcombank.tclife.quotationService.model.response.GoalListItemRespon
 
 public interface QuotationService {
     BasePaginationResponse<GoalListItemResponse> loadGoalSelection(int page, int size);
-    ClientResponseWrapper<Void> selectGoal(String goalId);
+    ClientResponseWrapper<Void> goalSubmission(String goalId);
 }

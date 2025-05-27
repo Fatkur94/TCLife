@@ -2,6 +2,7 @@ package com.techcombank.tclife.quotationService.service;
 
 import com.techcombank.tclife.common.base.BasePaginationResponse;
 import com.techcombank.tclife.common.constant.FeatureConfigConstants;
+import com.techcombank.tclife.common.model.dto.GoalQuestionResponse;
 import com.techcombank.tclife.common.util.JacksonUtil;
 import com.techcombank.tclife.common.wrapper.ClientResponseWrapper;
 import com.techcombank.tclife.dataService.model.GoalSummary;
@@ -54,11 +55,14 @@ public class QuotationServiceImpl implements QuotationService {
     }
 
     @Override
-    public ClientResponseWrapper<Void> selectGoal(String goalId) {
+    public ClientResponseWrapper<Void> goalSubmission(String goalId) {
+        // check if goal exist
+        //GoalQuestionResponse goalQuestionResponse = goalDataClient.getGoalByGoalId(goalId);
 
-        goalDataClient.getGoalByGoalId(goalId);
+        //if (goalQuestionResponse != null)
+        // save goal based on context_cache
 
-
+        // return true
         return null;
     }
 

@@ -41,11 +41,10 @@ public class QuotationController {
         );
         if (!authorized.getBody().isSuccess()) return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 
-        String pitchSessionId = CommonUtil.generateContextToken();
+        String contextToken = CommonUtil.generateContextToken();
         Context context = Context.builder()
                 .leadId(request.getContext().getLeadId())
-                .pitchSessionId(pitchSessionId)
-                .build();
+                .pitchSessionId(contextToken).build();
         BasePaginationResponse<GoalListItemResponse> goalSelection = quotationService.loadGoalSelection(page, size);
         return ResponseEntity.ok(new ResponseWrapper<>(true, goalSelection, context));
     }
